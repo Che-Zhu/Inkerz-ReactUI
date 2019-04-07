@@ -1,4 +1,7 @@
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Use 'npm install gh-pages --save-dev' to install node-modules
 
 ## Available Scripts
 
