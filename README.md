@@ -1,11 +1,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Please copy back your own node-modules folder for your local development after you downloaded this repository.
+Please copy back your own node-modules folder for your local development after you downloaded this repository:
 ![node-modules](node.png)
-Alternatively, you can Use `npm install gh-pages --save-dev` to re-install node-modules
 
-Please also check that you have the following command in your **package.json** file
+Alternatively, you can Use `npm install gh-pages --save-dev` to re-install node-modules.
+
+Please also check that you have the following command in your **package.json** file:
 ![package.json](script.png)
 
 ## Available Scripts
