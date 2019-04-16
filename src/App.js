@@ -5,7 +5,7 @@ import Main3DView from './components/Main3DView'
 import PhoneSelection from './components/PhoneSelection'
 import TextEngraving from './components/TextEngraving'
 import CaseColourPicker from './components/CaseColourPicker'
-import AppStateCheck from './components/AppStateCheck'
+// import AppStateCheck from './components/AppStateCheck'
 
 class App extends Component {
   /* Constructor */
@@ -60,11 +60,11 @@ class App extends Component {
   updateDisplayedPhoneModels(e) {
     var target = e.target.value
 
-    if (target == "AppleiOS") {
+    if (target === "AppleiOS") {
       this.setState({ displyed_phone_models: this.state.available_AppleiOS_phone_models })
     }
 
-    if (target == "Android") {
+    if (target === "Android") {
       this.setState({ displyed_phone_models: this.state.available_Android_phone_models })
     }
 
