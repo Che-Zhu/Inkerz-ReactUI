@@ -9,7 +9,7 @@ function PhoneSelection(props) {
                     <button
                         key={make_button}
                         style={{
-                            backgroundImage: `url(../../images/${make_button}.png)`
+                            backgroundImage: `url(images/${make_button}.png)`
                         }}
                         value={make_button}
                         className="button-phone-make"
