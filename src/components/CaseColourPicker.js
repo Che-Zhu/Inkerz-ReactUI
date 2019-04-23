@@ -1,23 +1,18 @@
 import React from 'react';
+import { SketchPicker } from 'react-color'
 
-function CaseColourPicker(props) {
+  function CaseColourPicker(props) {
+    const handleColorChange = ({ hex }) => console.log(hex)
+
     return (
-        <div>
-            <p>Pick Case Colour:</p>
-            {props.phone_case_colours.map((case_colour) => (
-                <button
-                    key={case_colour}
-                    style={{
-                        backgroundColor: case_colour
-                    }}
-                    value={case_colour}
-                    className="button-phone-case-colour"
-                    onClick={props.onCaseColourSelect} >
-                </button>
-            ))}
-        </div>
+      <div>
+          <p>Pick Case Colour: </p>
+        <SketchPicker
+          color="#4A90E2"
+          onChangeComplete={ handleColorChange }
+        />
+      </div>
     )
-
-}
+  }
 
 export default CaseColourPicker
