@@ -9,6 +9,7 @@ function Main3DView(props) {
             <p>Chosen Engraved Text: {props.app_states.chosen_engraved_text}</p>
             <p>Chosen Case Colour: {props.app_states.chosen_case_colour}</p>
             <p>Chosen Save 3D Format: {props.app_states.chosen_export_3d_format}</p>
+            <p>Phone Case: {props.app_states.chosen_phone_case}</p>
 
         </div>
     )
