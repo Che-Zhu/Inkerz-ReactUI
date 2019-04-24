@@ -259,8 +259,8 @@ select {
 }
 
 .displayCaseList {
+  min-width: 150px;
   height: 180px;
-  width: 150px;
   background-color: antiquewhite;
   border-radius: 25px;
   border-color: black;
@@ -288,41 +288,14 @@ select {
   max-height: 120px;
 }
 
-.previousPage {
-  height: 180px;
-  width: 30px;
-  background-color: #2e466e;
-  border-radius: 25px;
-  border-color: black;
-  border: 2px solid black;
-  -webkit-text-fill-color: white;
+.card {
+  display: flex;
+  background-color: rgba(1, 1, 1, 0);
+  min-width: 100%;
+  min-height: 190px;
+  overflow-x: auto; 
 }
 
-.nextPage {
-  height: 180px;
-  width: 30px;
-  background-color: #2e466e;
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
-  border-radius: 25px;
-  border-color: black;
-  border: 2px solid black;
-  -webkit-text-fill-color: white;
-}
-
-.previousPage:hover {
-  background-color: rgb(138, 138, 138);
-}
-
-.previousPage:active {
-  background-color: #2e466e;
-}
-
-.nextPage:hover {
-  background-color: rgb(138, 138, 138);
-}
-
-.nextPage:active {
-  background-color: #2e466e;
+.card::-webkit-scrollbar {
+  display: none;
 }
