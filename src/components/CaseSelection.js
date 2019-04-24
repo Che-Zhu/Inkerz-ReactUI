@@ -1,5 +1,6 @@
 import React from 'react';
-import App from '../App';
+//card view is based on this sample
+//https://medium.com/flexbox-and-grids/how-to-create-horizontally-scrollable-sections-with-flexbox-60d860f539b2
 
 function CaseSelection(props) {
     const os = props.app_states.chosen_phone_os;
@@ -7,12 +8,15 @@ function CaseSelection(props) {
     var caseList;
     var casesAvailable;
 
+    //check os version iOS or Android
     if (os === "iOS") {
+        //check device model
         if (model === "iPhone6") {
              caseList = props.app_states.available_iPhone6_cases
         } else if (model === "iPad2") {
              caseList = props.app_states.available_iPad2_cases
         } else {
+            //connect all device model arrays together if no device model is selected
              caseList = props.app_states.available_iPhone6_cases.concat(props.app_states.available_iPad2_cases)
         }
     } else if (os === "Android") {
@@ -24,15 +28,17 @@ function CaseSelection(props) {
             caseList = props.app_states.available_galaxyS9_cases.concat(props.app_states.available_pixel2XL_cases)
         }
     } else {
+        //if neither os is selected then display all cases
         caseList = props.app_states.available_case_models
     }
 
+    //get number of elements in array
     casesAvailable = caseList.length
 
-    
     var divisions = [];
 
-    for (let i = 0; i < casesAvailable; i++) {
+    //loop build elements function
+    for (var i = 0; i < casesAvailable; i++) {
         divisions.push(
             <div className="displayCaseList">
         <button className="displayCaseButton">
@@ -45,10 +51,11 @@ function CaseSelection(props) {
 
     return (
         <>
-        <button className="previousPage">{"<"}</button>
-        {divisions}
-        <button className="nextPage">{">"}</button>
+        <section class="card">
+            {divisions}
+        </section>
         </>
+        //<p>{casesAvailable} cases available (page {currentPageNumber} of {numberOfPages}({currentPageCases} this page))</p>
     )
 }
 
