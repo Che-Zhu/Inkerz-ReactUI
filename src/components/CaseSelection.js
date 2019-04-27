@@ -12,12 +12,12 @@ function CaseSelection(props) {
     if (os === "iOS") {
         //check device model
         if (model === "iPhone6") {
-             caseList = props.app_states.available_iPhone6_cases
+            caseList = props.app_states.available_iPhone6_cases
         } else if (model === "iPad2") {
-             caseList = props.app_states.available_iPad2_cases
+            caseList = props.app_states.available_iPad2_cases
         } else {
             //connect all device model arrays together if no device model is selected
-             caseList = props.app_states.available_iPhone6_cases.concat(props.app_states.available_iPad2_cases)
+            caseList = props.app_states.available_iPhone6_cases.concat(props.app_states.available_iPad2_cases)
         }
     } else if (os === "Android") {
         if (model === "GalaxyS9") {
@@ -40,20 +40,20 @@ function CaseSelection(props) {
     //loop build elements function
     for (var i = 0; i < casesAvailable; i++) {
         divisions.push(
-            <div className="displayCaseList">
-        <button className="displayCaseButton">
-        <img src={'images/'+caseList[i]+'.png'} alt="" className="displayCaseImage"/>
-        </button>
-            <p>{caseList[i]}</p>
-        </div>
+            <div className="displayCaseList" key={i}>
+                <button className="displayCaseButton">
+                    <img src={'images/' + caseList[i] + '.png'} alt="" className="displayCaseImage" />
+                </button>
+                <p>{caseList[i]}</p>
+            </div>
         )
     }
 
     return (
         <>
-        <section class="card">
-            {divisions}
-        </section>
+            <section className="card">
+                {divisions}
+            </section>
         </>
         //<p>{casesAvailable} cases available (page {currentPageNumber} of {numberOfPages}({currentPageCases} this page))</p>
     )

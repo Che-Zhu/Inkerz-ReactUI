@@ -3,7 +3,7 @@ import React from 'react';
 function ExportControl(props) {
     return (
         <div>
-            <select className="select-3d" onChange={props.on3DFormatSelect} value={props.chosen_3d_format}>
+            <select className="select-3d" onChange={props.on3DFormatSelect}>
                 <option value="">Select Format</option>
                 {props.export_3d_formats.map((format) => (
                     <option key={format} value={format} >.{format}</option>

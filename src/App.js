@@ -109,6 +109,7 @@ class App extends Component {
             <ExportControl
               export_3d_formats={this.state.available_export_3d_formats}
               chosen_3d_format={this.state.chosen_export_3d_format}
+              on3DFormatSelect={this.update3DExportFormat}
             />
           </div>
         </div>
