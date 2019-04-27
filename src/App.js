@@ -98,24 +98,20 @@ class App extends Component {
   /* App JSX render section */
   render() {
     return (
-      <div className="container" >
-        <header>
-          <Header />
-        </header>
+      <div className="app" >
+        <Header />
         <div className="top-controls">
-          <div className="top-controls-flex">
-            <LoadControl />
-            <ResetControl onResetApp={this.resetApp} />
-            <ExportControl
-              export_3d_formats={this.state.available_export_3d_formats}
-              chosen_3d_format={this.state.chosen_export_3d_format}
-              on3DFormatSelect={this.update3DExportFormat}
-            />
-          </div>
+          <LoadControl />
+          <ResetControl onResetApp={this.resetApp} />
+          <ExportControl
+            export_3d_formats={this.state.available_export_3d_formats}
+            chosen_3d_format={this.state.chosen_export_3d_format}
+            on3DFormatSelect={this.update3DExportFormat}
+          />
         </div>
-        <main>
+        <div className="view3d">
           <Main3DView app_states={this.state} />
-          <div className="abottom" >
+          <div className="models" >
             <CaseSelection
               phone_case_selection={this.state.available_case_models}
               onCaseSelect={this.updateChosenCase}
@@ -123,9 +119,9 @@ class App extends Component {
             />
           </div>
 
-        </main>
+        </div>
 
-        <aside>
+        <div className="edit-controls">
           <PhoneSelection
             phone_makes={this.state.available_phone_OS}
             chosen_model_list={this.state.displyed_phone_models}
@@ -141,7 +137,7 @@ class App extends Component {
             onCaseColourSelect={this.updateCaseColour}
             updated_case_colour={this.state.chosen_case_colour}
           />
-        </aside>
+        </div>
 
         {/* !!! Remove AppStateCheck in final version !!! */}
         {/* <AppStateCheck app_states={this.state} /> */}
