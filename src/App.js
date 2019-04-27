@@ -24,7 +24,6 @@ class App extends Component {
       chosen_case_colour: '',
       chosen_phone_case: '',
       chosen_export_3d_format: '',
-      available_case_colours: ['Red', 'Blue', 'Green', 'Orange', 'Teal', 'Black', '#ffd24d', '#8585ad', 'Brown'],
       available_phone_OS: ['AppleiOS', 'Android'],
       available_AppleiOS_phone_models: ['iPhone6', 'iPad2'],
       available_Android_phone_models: ['GalaxyS9', 'GooglePixel2XL'],

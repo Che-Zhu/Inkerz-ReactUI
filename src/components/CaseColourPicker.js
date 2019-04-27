@@ -6,6 +6,8 @@ function CaseColourPicker(props) {
     <div>
       <p>Pick Case Colour: </p>
       <SketchPicker
+        disableAlpha={true}
+        width={190}
         color={props.updated_case_colour}
         onChangeComplete={props.onCaseColourSelect}
       />
