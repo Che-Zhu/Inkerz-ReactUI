@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/Header'
-import TopControls from './components/TopControls'
+import LoadControl from './components/LoadControl'
+import ExportControl from './components/ExportControl'
+import ResetControl from './components/ResetControl'
 import Main3DView from './components/Main3DView'
 import PhoneSelection from './components/PhoneSelection'
 import TextEngraving from './components/TextEngraving'
@@ -28,11 +30,11 @@ class App extends Component {
       available_Android_phone_models: ['GalaxyS9', 'GooglePixel2XL'],
       available_export_3d_formats: ['STL', 'OBJ', 'AFM', '3FM'],
       displyed_phone_models: ['Please', 'Choose', 'Phone', 'OS', 'First'],
-      available_iPhone6_cases: ['iphone6.1','iphone6.2','iphone6.3'],
+      available_iPhone6_cases: ['iphone6.1', 'iphone6.2', 'iphone6.3'],
       available_iPad2_cases: ['ipad2.1'],
-      available_galaxyS9_cases: ['galaxyS9.1','galaxyS9.2'],
+      available_galaxyS9_cases: ['galaxyS9.1', 'galaxyS9.2'],
       available_pixel2XL_cases: ['pixel2XL.1'],
-      available_case_models: ['iphone6.1','iphone6.2','iphone6.3','ipad2.1','galaxyS9.1','galaxyS9.2','pixel2XL.1']
+      available_case_models: ['iphone6.1', 'iphone6.2', 'iphone6.3', 'ipad2.1', 'galaxyS9.1', 'galaxyS9.2', 'pixel2XL.1']
     }
 
     /* section to bind functions to local class context */
@@ -71,12 +73,12 @@ class App extends Component {
     var target = e.target.value
 
     if (target === "AppleiOS") {
-      this.setState({ chosen_phone_os: "iOS"})
+      this.setState({ chosen_phone_os: "iOS" })
       this.setState({ displyed_phone_models: this.state.available_AppleiOS_phone_models })
     }
 
     if (target === "Android") {
-      this.setState({ chosen_phone_os: "Android"})
+      this.setState({ chosen_phone_os: "Android" })
       this.setState({ displyed_phone_models: this.state.available_Android_phone_models })
     }
 
@@ -101,22 +103,25 @@ class App extends Component {
         <header>
           <Header />
         </header>
-        <TopControls
-          export_3d_formats={this.state.available_export_3d_formats}
-          chosen_3d_format={this.state.chosen_export_3d_format}
-          on3DFormatSelect={this.update3DExportFormat}
-          onResetApp={this.resetApp}
-        />
+        <div className="top-controls">
+          <div className="top-controls-flex">
+            <LoadControl />
+            <ResetControl onResetApp={this.resetApp} />
+            <ExportControl
+              export_3d_formats={this.state.available_export_3d_formats}
+              chosen_3d_format={this.state.chosen_export_3d_format}
+            />
+          </div>
+        </div>
         <main>
           <Main3DView app_states={this.state} />
-
           <div className="abottom" >
             <CaseSelection
-            phone_case_selection={this.state.available_case_models}
-            onCaseSelect={this.updateChosenCase}
-            app_states={this.state}
+              phone_case_selection={this.state.available_case_models}
+              onCaseSelect={this.updateChosenCase}
+              app_states={this.state}
             />
-        </div>
+          </div>
 
         </main>
 
