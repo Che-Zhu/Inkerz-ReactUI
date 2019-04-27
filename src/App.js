@@ -88,8 +88,8 @@ class App extends Component {
     this.setState({ chosen_engraved_text: e.target.value })
   }
 
-  updateCaseColour(e) {
-    this.setState({ chosen_case_colour: e.target.value })
+  updateCaseColour(color) {
+    this.setState({ chosen_case_colour: color.hex })
   }
 
   updateChosenCase(e) {
@@ -138,8 +138,8 @@ class App extends Component {
             onEngraveTextChange={this.updateEngravingText}
           />
           <CaseColourPicker
-            phone_case_colours={this.state.available_case_colours}
             onCaseColourSelect={this.updateCaseColour}
+            updated_case_colour={this.state.chosen_case_colour}
           />
         </aside>
 
