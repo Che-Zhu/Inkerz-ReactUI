@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/Header'
-import TopControls from './components/TopControls'
+import LoadControl from './components/LoadControl'
+import ExportControl from './components/ExportControl'
+import ResetControl from './components/ResetControl'
 import Main3DView from './components/Main3DView'
 import PhoneSelection from './components/PhoneSelection'
 import TextEngraving from './components/TextEngraving'
@@ -22,17 +24,16 @@ class App extends Component {
       chosen_case_colour: '',
       chosen_phone_case: '',
       chosen_export_3d_format: '',
-      available_case_colours: ['Red', 'Blue', 'Green', 'Orange', 'Teal', 'Black', '#ffd24d', '#8585ad', 'Brown'],
       available_phone_OS: ['AppleiOS', 'Android'],
       available_AppleiOS_phone_models: ['iPhone6', 'iPad2'],
       available_Android_phone_models: ['GalaxyS9', 'GooglePixel2XL'],
       available_export_3d_formats: ['STL', 'OBJ', 'AFM', '3FM'],
       displyed_phone_models: ['Please', 'Choose', 'Phone', 'OS', 'First'],
-      available_iPhone6_cases: ['iphone6.1','iphone6.2','iphone6.3'],
+      available_iPhone6_cases: ['iphone6.1', 'iphone6.2', 'iphone6.3'],
       available_iPad2_cases: ['ipad2.1'],
-      available_galaxyS9_cases: ['galaxyS9.1','galaxyS9.2'],
+      available_galaxyS9_cases: ['galaxyS9.1', 'galaxyS9.2'],
       available_pixel2XL_cases: ['pixel2XL.1'],
-      available_case_models: ['iphone6.1','iphone6.2','iphone6.3','ipad2.1','galaxyS9.1','galaxyS9.2','pixel2XL.1']
+      available_case_models: ['iphone6.1', 'iphone6.2', 'iphone6.3', 'ipad2.1', 'galaxyS9.1', 'galaxyS9.2', 'pixel2XL.1']
     }
 
     /* section to bind functions to local class context */
@@ -57,7 +58,8 @@ class App extends Component {
       chosen_engraved_text: '',
       chosen_case_colour: '',
       chosen_export_3d_format: '',
-      displyed_phone_models: ['Choose', 'Phone', 'Make', 'Above']
+      displyed_phone_models: ['Choose', 'Phone', 'Make', 'Above'],
+      chosen_phone_case: ''
     })
   }
 
@@ -71,12 +73,12 @@ class App extends Component {
     var target = e.target.value
 
     if (target === "AppleiOS") {
-      this.setState({ chosen_phone_os: "iOS"})
+      this.setState({ chosen_phone_os: "iOS" })
       this.setState({ displyed_phone_models: this.state.available_AppleiOS_phone_models })
     }
 
     if (target === "Android") {
-      this.setState({ chosen_phone_os: "Android"})
+      this.setState({ chosen_phone_os: "Android" })
       this.setState({ displyed_phone_models: this.state.available_Android_phone_models })
     }
 
@@ -86,8 +88,8 @@ class App extends Component {
     this.setState({ chosen_engraved_text: e.target.value })
   }
 
-  updateCaseColour(e) {
-    this.setState({ chosen_case_colour: e.target.value })
+  updateCaseColour(color) {
+    this.setState({ chosen_case_colour: color.hex })
   }
 
   updateChosenCase(e) {
@@ -97,30 +99,27 @@ class App extends Component {
   /* App JSX render section */
   render() {
     return (
-      <div className="container" >
-        <header>
-          <Header />
-        </header>
-        <TopControls
-          export_3d_formats={this.state.available_export_3d_formats}
-          chosen_3d_format={this.state.chosen_export_3d_format}
-          on3DFormatSelect={this.update3DExportFormat}
-          onResetApp={this.resetApp}
-        />
-        <main>
-          <Main3DView app_states={this.state} />
-
-          <div className="abottom" >
-            <CaseSelection
-            phone_case_selection={this.state.available_case_models}
-            onCaseSelect={this.updateChosenCase}
-            app_states={this.state}
-            />
+      <div className="app" >
+        <Header />
+        <div className="top-controls">
+          <LoadControl />
+          <ResetControl onResetApp={this.resetApp} />
+          <ExportControl
+            export_3d_formats={this.state.available_export_3d_formats}
+            chosen_3d_format={this.state.chosen_export_3d_format}
+            on3DFormatSelect={this.update3DExportFormat}
+          />
         </div>
-
-        </main>
-
-        <aside>
+        <div className="view3d">
+          <Main3DView app_states={this.state} />
+          <div className="models" >
+            <CaseSelection
+              onCaseSelect={this.updateChosenCase}
+              app_states={this.state}
+            />
+          </div>
+        </div>
+        <div className="edit-controls">
           <PhoneSelection
             phone_makes={this.state.available_phone_OS}
             chosen_model_list={this.state.displyed_phone_models}
@@ -133,14 +132,14 @@ class App extends Component {
             onEngraveTextChange={this.updateEngravingText}
           />
           <CaseColourPicker
-            phone_case_colours={this.state.available_case_colours}
             onCaseColourSelect={this.updateCaseColour}
+            updated_case_colour={this.state.chosen_case_colour}
           />
-        </aside>
+        </div>
 
         {/* !!! Remove AppStateCheck in final version !!! */}
         {/* <AppStateCheck app_states={this.state} /> */}
-      </div>
+      </div >
     );
   }
 }

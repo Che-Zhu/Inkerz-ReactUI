@@ -1,18 +1,18 @@
 import React from 'react';
 import { SketchPicker } from 'react-color'
 
-  function CaseColourPicker(props) {
-    const handleColorChange = ({ hex }) => console.log(hex)
-
-    return (
-      <div>
-          <p>Pick Case Colour: </p>
-        <SketchPicker
-          color="#4A90E2"
-          onChangeComplete={ handleColorChange }
-        />
-      </div>
-    )
-  }
+function CaseColourPicker(props) {
+  return (
+    <div>
+      <p>Pick Case Colour: </p>
+      <SketchPicker
+        disableAlpha={true}
+        width={190}
+        color={props.updated_case_colour}
+        onChangeComplete={props.onCaseColourSelect}
+      />
+    </div>
+  )
+}
 
 export default CaseColourPicker

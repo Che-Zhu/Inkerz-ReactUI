@@ -3,8 +3,8 @@ import React from 'react';
 function PhoneSelection(props) {
     return (
         <div>
-            <div className="aside">
-                <p>Phone Operating System:</p>
+            <div>
+                <p>Select Device OS:</p>
                 {props.phone_makes.map((make_button) => (
                     <button
                         key={make_button}
@@ -18,7 +18,7 @@ function PhoneSelection(props) {
                 ))}
             </div>
             <div>
-                <p>Phone Model:</p>
+                <p>Select Model:</p>
                 <select size="5" onChange={props.onPhoneModelSelect}>
                     {props.chosen_model_list.map((phone) => (
                         <option key={phone} value={phone} >{phone}</option>
