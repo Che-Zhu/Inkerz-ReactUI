@@ -266,44 +266,27 @@ body {
   outline: none;
 }
 
-.displayCaseList {
-  min-width: 150px;
-  height: 180px;
-  background-color: antiquewhite;
-  border-radius: 25px;
-  border-color: black;
-  border: 2px solid black;
-  text-align: center;
-  margin-left: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.displayCaseList:hover {
-  background-color: rgb(65, 196, 185);
-}
-
 .displayCaseButton {
-  border-radius: 25px;
-  background-color: rgba(1, 1, 1, 0);
+  margin: 2px;
+  padding-top: 80px;
+  border-radius: 5px;
+  background-color: burlywood;
   border-color: rgba(1, 1, 1, 0);
-  border: 0px;
-}
-
-.displayCaseImage {
+  border: 3px solid #0e3970;
+  font: 12px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
   height: 120px;
-  background-color: rgba(1, 1, 1, 0);
-  max-width: 100px;
-  max-height: 120px;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: top;
+  outline: none;
 }
 
-.card {
-  display: flex;
-  background-color: rgba(1, 1, 1, 0);
-  min-width: 100%;
-  min-height: 190px;
-  overflow-x: auto;
-}
-
-.card::-webkit-scrollbar {
-  display: none;
+.displayCaseButton:hover {
+  background: #d1d3da;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 65%;
 }

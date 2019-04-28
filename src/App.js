@@ -58,7 +58,8 @@ class App extends Component {
       chosen_engraved_text: '',
       chosen_case_colour: '',
       chosen_export_3d_format: '',
-      displyed_phone_models: ['Choose', 'Phone', 'Make', 'Above']
+      displyed_phone_models: ['Choose', 'Phone', 'Make', 'Above'],
+      chosen_phone_case: ''
     })
   }
 
@@ -113,14 +114,11 @@ class App extends Component {
           <Main3DView app_states={this.state} />
           <div className="models" >
             <CaseSelection
-              phone_case_selection={this.state.available_case_models}
               onCaseSelect={this.updateChosenCase}
               app_states={this.state}
             />
           </div>
-
         </div>
-
         <div className="edit-controls">
           <PhoneSelection
             phone_makes={this.state.available_phone_OS}
@@ -141,7 +139,7 @@ class App extends Component {
 
         {/* !!! Remove AppStateCheck in final version !!! */}
         {/* <AppStateCheck app_states={this.state} /> */}
-      </div>
+      </div >
     );
   }
 }

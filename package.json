@@ -5,6 +5,7 @@
   "homepage": "http://cheaww.github.io/Inkerz-ReactUI",
   "dependencies": {
     "react": "^16.8.6",
+    "react-animated-slider": "^1.1.4",
     "react-color": "^2.17.2",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"
