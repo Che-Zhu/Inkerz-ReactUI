@@ -33,6 +33,8 @@ function CaseSelection(props) {
 
     return (
         <div>
+            <div>Search for: <input type="text" placeholder="example: iphone"></input></div>
+
             {
                 caseList.map((phone_case) => (
                     <button className="displayCaseButton"

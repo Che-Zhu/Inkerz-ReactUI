@@ -127,8 +127,8 @@ body {
 .models {
   display: grid;
   grid-column: 1/3;
+  padding: 2px;
   /* grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); */
-  color: rgb(250, 143, 2);
   grid-area: models;
 }
 
