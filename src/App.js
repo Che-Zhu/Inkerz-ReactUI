@@ -94,7 +94,7 @@ class App extends Component {
   }
 
   updateChosenCase(e) {
-    this.setState({ chosen_phone_case: e.target.value })
+    this.setState({ chosen_phone_case: e })
   }
 
   /* App JSX render section */
@@ -112,18 +112,15 @@ class App extends Component {
           />
         </div>
         <div className="view3d">
-          <Main3DView app_states={this.state} />
-          <div className="models" >
-            {/* <CaseSelection
+          {/* <CaseSelection
               onCaseSelect={this.updateChosenCase}
               app_states={this.state}
             /> */}
-            <CaseSelection2
-              onCaseSelect={this.updateChosenCase}
-              app_states={this.state}
-            />
-
-          </div>
+          <CaseSelection2
+            onCaseSelect={this.updateChosenCase}
+            app_states={this.state}
+          />
+          <Main3DView app_states={this.state} />
         </div>
         <div className="edit-controls">
           {/* <PhoneSelection

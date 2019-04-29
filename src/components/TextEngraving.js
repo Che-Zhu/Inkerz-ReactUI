@@ -9,6 +9,7 @@ function TextEngraving(props) {
                 </label>
                 <input
                     id="text-to-engrave"
+                    className="search-3d"
                     onChange={props.onEngraveTextChange}
                     value={props.engraved} placeholder="Text to Engrave"
                 />
