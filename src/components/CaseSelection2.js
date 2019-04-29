@@ -18,7 +18,8 @@ class CaseSelection2 extends Component {
     componentDidMount() {
         this.setState({
             /* load the caseList with all cases (from parent App) */
-            caseList: this.props.app_states.available_case_models
+            // caseList: this.props.app_states.available_case_models
+            caseList: []
         });
         /* focus on seach button when componenet loaded */
         this.refs.search.focus();
@@ -50,7 +51,8 @@ class CaseSelection2 extends Component {
             else {
                 /* if there is no search term typed, reset to original list of cases */
                 return {
-                    caseList: this.props.app_states.available_case_models
+                    // caseList: this.props.app_states.available_case_models
+                    caseList: []
                 }
             }
         })
@@ -59,7 +61,8 @@ class CaseSelection2 extends Component {
     resetSearch() {
         this.setState({
             searchString: '',
-            caseList: this.props.app_states.available_case_models
+            // caseList: this.props.app_states.available_case_models
+            caseList: []
         })
     }
     /* what getrs shown in the component (render) */
@@ -69,7 +72,7 @@ class CaseSelection2 extends Component {
             <div>
                 {/* search text field */}
                 <div>
-                    Search for:
+                    Search for Phone Case to Model:
                      <input type="text"
                         className="search-3d"
                         value={this.state.searchString}
@@ -86,7 +89,8 @@ class CaseSelection2 extends Component {
                             key={phone_case}
                             style={{ backgroundImage: `url(images/${phone_case}.png)` }}
                             value={phone_case}
-                            onClick={this.props.onCaseSelect}>
+                            // onClick={this.props.onCaseSelect}>
+                            onClick={() => { this.props.onCaseSelect(phone_case); this.resetSearch() }}>
                             <p>{phone_case}</p>
                         </button>
                     ))
