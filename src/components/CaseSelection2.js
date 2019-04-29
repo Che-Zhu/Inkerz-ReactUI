@@ -7,7 +7,7 @@ class CaseSelection2 extends Component {
 
         /* App state*/
         this.state = {
-            caseList: this.props.app_states.available_case_models,
+            caseList: [],
             searchString: ''
         }
         // console.log("os", this.os)
@@ -15,18 +15,37 @@ class CaseSelection2 extends Component {
         this.resetSearch = this.resetSearch.bind(this)
     }
 
-    handleChange() {
+    componentDidMount() {
         this.setState({
-            searchString: this.refs.search.value.trim()
+            caseList: this.props.app_states.available_case_models
+        });
+        this.refs.search.focus();
+    }
+
+    handleChange() {
+        /* reset the state to starting point before filtering
+        this is important when searchString is being deleted (back space) */
+        this.setState({
+            caseList: this.props.app_states.available_case_models
+        })
+
+        /* set state of search String to changed value from input text*/
+        this.setState({
+            searchString: this.refs.search.value.trim(),
 
         })
+        /* filter current state of caseList based on seach being present,
+        showing only results matching the letter in case name*/
         this.setState((currentState) => {
+            // console.log("search_this", currentState.searchString)
             if (currentState.searchString.length > 0) {
                 return {
-                    caseList: currentState.caseList.filter((phone_case) => phone_case.includes(currentState.searchString))
+                    caseList: currentState.caseList.filter((phone_case) => phone_case.match(currentState.searchString))
                 }
+
             }
             else {
+                /* if there is no search tern, reset to original list of cases */
                 return {
                     caseList: this.props.app_states.available_case_models
                 }
