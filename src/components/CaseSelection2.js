@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class CaseSelection2 extends Component {
-
+    /*class constructor */
     constructor(props) {
         super(props)
 
@@ -10,20 +10,23 @@ class CaseSelection2 extends Component {
             caseList: [],
             searchString: ''
         }
-        // console.log("os", this.os)
+        /* local function bind to class local context */
         this.handleChange = this.handleChange.bind(this);
         this.resetSearch = this.resetSearch.bind(this)
     }
-
+    /* lifecycle stage when component loaded */
     componentDidMount() {
         this.setState({
+            /* load the caseList with all cases (from parent App) */
             caseList: this.props.app_states.available_case_models
         });
+        /* focus on seach button when componenet loaded */
         this.refs.search.focus();
     }
 
+    /* handles changes when user types the search */
     handleChange() {
-        /* reset the state to starting point before filtering
+        /* first, reset the state to starting point before filtering
         this is important when searchString is being deleted (back space) */
         this.setState({
             caseList: this.props.app_states.available_case_models
@@ -35,45 +38,47 @@ class CaseSelection2 extends Component {
 
         })
         /* filter current state of caseList based on seach being present,
-        showing only results matching the letter in case name*/
+        showing only results matching the searched letters in case name*/
         this.setState((currentState) => {
-            // console.log("search_this", currentState.searchString)
+            /* we only want to action (filter results) if someting is typed in to be searched */
             if (currentState.searchString.length > 0) {
                 return {
-                    caseList: currentState.caseList.filter((phone_case) => phone_case.match(currentState.searchString))
+                    /* updates (filters) caseList with only array elements matching the searchString value */
+                    caseList: currentState.caseList.filter((phone_case) => phone_case.includes(currentState.searchString))
                 }
-
             }
             else {
-                /* if there is no search tern, reset to original list of cases */
+                /* if there is no search term typed, reset to original list of cases */
                 return {
                     caseList: this.props.app_states.available_case_models
                 }
             }
         })
     }
-
+    /* reset the search String */
     resetSearch() {
         this.setState({
             searchString: '',
             caseList: this.props.app_states.available_case_models
         })
     }
-
+    /* what getrs shown in the component (render) */
     render() {
 
         return (
             <div>
-                {/* {this.state.searchString} */}
+                {/* search text field */}
                 <div>
                     Search for:
-                    <input type="text"
+                     <input type="text"
+                        className="search-3d"
                         value={this.state.searchString}
                         ref="search"
                         onChange={this.handleChange}
                         placeholder="example: iphone">
                     </input>
-                    <input type="button" onClick={this.resetSearch} value="Clear"></input>
+                    <input type="button" className="button-3d" onClick={this.resetSearch} value="Clear"></input>
+                    {/* caseList - show cases with background photo and button name/value*/}
                 </div>
                 {
                     this.state.caseList.map((phone_case) => (
@@ -87,8 +92,6 @@ class CaseSelection2 extends Component {
                     ))
                 }
             </div >
-
-            //<p>{casesAvailable} cases available (page {currentPageNumber} of {numberOfPages}({currentPageCases} this page))</p>
         )
     }
 }
