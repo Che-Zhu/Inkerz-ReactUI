@@ -8,6 +8,7 @@ import PhoneSelection from './components/PhoneSelection'
 import TextEngraving from './components/TextEngraving'
 import CaseColourPicker from './components/CaseColourPicker'
 import CaseSelection from './components/CaseSelection'
+import CaseSelection2 from './components/CaseSelection2'
 
 // import AppStateCheck from './components/AppStateCheck'
 
@@ -33,7 +34,7 @@ class App extends Component {
       available_iPad2_cases: ['ipad2.1'],
       available_galaxyS9_cases: ['galaxyS9.1', 'galaxyS9.2'],
       available_pixel2XL_cases: ['pixel2XL.1'],
-      available_case_models: ['iphone6.1', 'iphone6.2', 'iphone6.3', 'ipad2.1', 'galaxyS9.1', 'galaxyS9.2', 'pixel2XL.1']
+      available_case_models: ['iphone6.1', 'iphone6.2', 'iphone6.3', 'ipad2.1', 'galaxyS9.1', 'galaxyS9.2', 'pixel2XL.1'],
     }
 
     /* section to bind functions to local class context */
@@ -58,8 +59,8 @@ class App extends Component {
       chosen_engraved_text: '',
       chosen_case_colour: '',
       chosen_export_3d_format: '',
-      displyed_phone_models: ['Choose', 'Phone', 'Make', 'Above'],
-      chosen_phone_case: ''
+      displyed_phone_models: ['Please', 'Choose', 'Phone', 'OS', 'First'],
+      chosen_phone_case: '',
     })
   }
 
@@ -113,20 +114,25 @@ class App extends Component {
         <div className="view3d">
           <Main3DView app_states={this.state} />
           <div className="models" >
-            <CaseSelection
+            {/* <CaseSelection
+              onCaseSelect={this.updateChosenCase}
+              app_states={this.state}
+            /> */}
+            <CaseSelection2
               onCaseSelect={this.updateChosenCase}
               app_states={this.state}
             />
+
           </div>
         </div>
         <div className="edit-controls">
-          <PhoneSelection
+          {/* <PhoneSelection
             phone_makes={this.state.available_phone_OS}
             chosen_model_list={this.state.displyed_phone_models}
             onPhoneMakeSelect={this.updateDisplayedPhoneModels}
             onPhoneModelSelect={this.updatePhoneModelSelect}
             model={this.state.chosen_phone_model}
-          />
+          /> */}
           <TextEngraving
             engraved={this.state.chosen_engraved_text}
             onEngraveTextChange={this.updateEngravingText}
