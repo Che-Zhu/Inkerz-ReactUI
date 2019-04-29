@@ -1,55 +1,103 @@
-import React from 'react';
-//card view is based on this sample
-//https://medium.com/flexbox-and-grids/how-to-create-horizontally-scrollable-sections-with-flexbox-60d860f539b2
+import React, { Component } from 'react';
 
-function CaseSelection(props) {
-    let os = props.app_states.chosen_phone_os;
-    let model = props.app_states.chosen_phone_model;
-    let caseList;
+class CaseSelection2 extends Component {
+    /*class constructor */
+    constructor(props) {
+        super(props)
 
-    //check os version iOS or Android
-    if (os === "iOS") {
-        //check device model
-        if (model === "iPhone6") {
-            caseList = props.app_states.available_iPhone6_cases
-        } else if (model === "iPad2") {
-            caseList = props.app_states.available_iPad2_cases
-        } else {
-            //connect all device model arrays together if no device model is selected
-            caseList = props.app_states.available_iPhone6_cases.concat(props.app_states.available_iPad2_cases)
+        /* App state*/
+        this.state = {
+            caseList: [],
+            searchString: ''
         }
-    } else if (os === "Android") {
-        if (model === "GalaxyS9") {
-            caseList = props.app_states.available_galaxyS9_cases
-        } else if (model === "GooglePixel2XL") {
-            caseList = props.app_states.available_pixel2XL_cases
-        } else {
-            caseList = props.app_states.available_galaxyS9_cases.concat(props.app_states.available_pixel2XL_cases)
-        }
-    } else {
-        //if neither os is selected then display all cases
-        caseList = props.app_states.available_case_models
+        /* local function bind to class local context */
+        this.handleChange = this.handleChange.bind(this);
+        this.resetSearch = this.resetSearch.bind(this)
+    }
+    /* lifecycle stage when component loaded */
+    componentDidMount() {
+        this.setState({
+            /* load the caseList with all cases (from parent App) */
+            // caseList: this.props.app_states.available_case_models
+            caseList: []
+        });
+        /* focus on seach button when componenet loaded */
+        this.refs.search.focus();
     }
 
-    return (
-        <div>
-            <div>Search for: <input type="text" placeholder="example: iphone"></input></div>
+    /* handles changes when user types the search */
+    handleChange() {
+        /* first, reset the state to starting point before filtering
+        this is important when searchString is being deleted (back space) */
+        this.setState({
+            caseList: this.props.app_states.available_case_models
+        })
 
-            {
-                caseList.map((phone_case) => (
-                    <button className="displayCaseButton"
-                        key={phone_case}
-                        style={{ backgroundImage: `url(images/${phone_case}.png)` }}
-                        value={phone_case}
-                        onClick={props.onCaseSelect}>
-                        <p>{phone_case}</p>
-                    </button>
-                ))
+        /* set state of search String to changed value from input text*/
+        this.setState({
+            searchString: this.refs.search.value.trim(),
+
+        })
+        /* filter current state of caseList based on seach being present,
+        showing only results matching the searched letters in case name*/
+        this.setState((currentState) => {
+            /* we only want to action (filter results) if someting is typed in to be searched */
+            if (currentState.searchString.length > 0) {
+                return {
+                    /* updates (filters) caseList with only array elements matching the searchString value */
+                    caseList: currentState.caseList.filter((phone_case) => phone_case.includes(currentState.searchString))
+                }
             }
-        </div >
+            else {
+                /* if there is no search term typed, reset to original list of cases */
+                return {
+                    // caseList: this.props.app_states.available_case_models
+                    caseList: []
+                }
+            }
+        })
+    }
+    /* reset the search String */
+    resetSearch() {
+        this.setState({
+            searchString: '',
+            // caseList: this.props.app_states.available_case_models
+            caseList: []
+        })
+    }
+    /* what getrs shown in the component (render) */
+    render() {
 
-        //<p>{casesAvailable} cases available (page {currentPageNumber} of {numberOfPages}({currentPageCases} this page))</p>
-    )
+        return (
+            <div>
+                {/* search text field */}
+                <div>
+                    Search for Phone Case to Model:
+                     <input type="text"
+                        className="search-3d"
+                        value={this.state.searchString}
+                        ref="search"
+                        onChange={this.handleChange}
+                        placeholder="example: iphone">
+                    </input>
+                    <input type="button" className="button-3d" onClick={this.resetSearch} value="Clear"></input>
+                    {/* caseList - show cases with background photo and button name/value*/}
+                </div>
+                {
+                    this.state.caseList.map((phone_case) => (
+                        <button className="displayCaseButton"
+                            key={phone_case}
+                            style={{ backgroundImage: `url(images/${phone_case}.png)` }}
+                            value={phone_case}
+                            // onClick={this.props.onCaseSelect}>
+                            onClick={() => { this.props.onCaseSelect(phone_case); this.resetSearch() }}>
+                            <p>{phone_case}</p>
+                        </button>
+                    ))
+                }
+            </div >
+        )
+    }
 }
 
-export default CaseSelection
+export default CaseSelection2
