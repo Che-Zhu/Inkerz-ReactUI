@@ -9,6 +9,9 @@ Alternatively, you can Use `npm install gh-pages --save-dev` to re-install node-
 Please also check that you have the following command in your **package.json** file:
 ![package.json](script.png)
 
+## React-color
+Please use command `npm install react-color --save` to install react color module.
+
 ## Available Scripts
 
 In the project directory, you can run:
