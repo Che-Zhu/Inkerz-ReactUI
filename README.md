@@ -12,6 +12,9 @@ Please also check that you have the following command in your **package.json** f
 ## React-color
 Please use command `npm install react-color --save` to install react color module.
 
+## Three.js
+Please use command `npm install three --save-dev` to install Three.js.
+
 ## Available Scripts
 
 In the project directory, you can run:
