@@ -1,3 +1,6 @@
+/*This compoinent is main ThreeJS viewer, displaying the 3D model and
+updating any changes to said model */
+
 import React from 'react';
 
 function Main3DView(props) {

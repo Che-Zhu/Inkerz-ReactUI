@@ -1,3 +1,14 @@
+/* This compoenet (a class) uses case list (available_case_models)
+from App.js in building a searchable text input, for user to find
+a case to model.
+
+It uses states to manipulate case list array, for showing and filtering.
+
+this.props.onCaseSelect(phone_case) function updates the chosen_phone_case
+property in App.js (state)
+
+*/
+
 import React, { Component } from 'react';
 
 class CaseSelection2 extends Component {
@@ -16,21 +27,16 @@ class CaseSelection2 extends Component {
     }
     /* lifecycle stage when component loaded */
     componentDidMount() {
-        this.setState({
-            /* load the caseList with all cases (from parent App) */
-            // caseList: this.props.app_states.available_case_models
-            caseList: []
-        });
         /* focus on seach button when componenet loaded */
         this.refs.search.focus();
     }
 
     /* handles changes when user types the search */
     handleChange() {
-        /* first, reset the state to starting point before filtering
+        /* first, reset the state to starting point before filtering (load all cases)
         this is important when searchString is being deleted (back space) */
         this.setState({
-            caseList: this.props.app_states.available_case_models
+            caseList: this.props.case_list
         })
 
         /* set state of search String to changed value from input text*/
@@ -49,19 +55,17 @@ class CaseSelection2 extends Component {
                 }
             }
             else {
-                /* if there is no search term typed, reset to original list of cases */
+                /* if there is no search term typed, reset to empty list (hide)*/
                 return {
-                    // caseList: this.props.app_states.available_case_models
                     caseList: []
                 }
             }
         })
     }
-    /* reset the search String */
+    /* reset the search String and case list to none (nothing to view)*/
     resetSearch() {
         this.setState({
             searchString: '',
-            // caseList: this.props.app_states.available_case_models
             caseList: []
         })
     }
@@ -81,7 +85,7 @@ class CaseSelection2 extends Component {
                         placeholder="example: iphone">
                     </input>
                     <input type="button" className="button-3d" onClick={this.resetSearch} value="Clear"></input>
-                    {/* caseList - show cases with background photo and button name/value*/}
+                    {/* caseList - show/renders cases with background photo and button name/value*/}
                 </div>
                 {
                     this.state.caseList.map((phone_case) => (
@@ -89,7 +93,7 @@ class CaseSelection2 extends Component {
                             key={phone_case}
                             style={{ backgroundImage: `url(images/${phone_case}.png)` }}
                             value={phone_case}
-                            // onClick={this.props.onCaseSelect}>
+                            /* onClick both updates the case selection and resets/clears the search (hides resuts)*/
                             onClick={() => { this.props.onCaseSelect(phone_case); this.resetSearch() }}>
                             <p>{phone_case}</p>
                         </button>

@@ -57,7 +57,8 @@ class App extends Component {
     this.setState({ chosen_phone_case: e })
   }
 
-  /* App JSX render section */
+  /* App JSX render section. Works together with index.css in
+  producing a layout (based on grid css*/
   render() {
     return (
       <div className="app" >
@@ -74,7 +75,7 @@ class App extends Component {
         <div className="view3d">
           <CaseSelection
             onCaseSelect={this.updateChosenCase}
-            app_states={this.state}
+            case_list={this.state.available_case_models}
           />
           <Main3DView app_states={this.state} />
         </div>

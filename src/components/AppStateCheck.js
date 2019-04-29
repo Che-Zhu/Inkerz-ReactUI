@@ -1,3 +1,6 @@
+/*This functional component is used for testing the ouptut of applicaiton (App.js) state
+changes. It can be placed in the page as a test. */
+
 import React from 'react';
 
 function AppStateCheck(props) {
