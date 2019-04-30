@@ -1,3 +1,6 @@
+/* This component controls the input of the engraving text for the chosen case.
+ onChange={props.onEngraveTextChange} updates the chosen_engraved_text in App.js*/
+
 import React from 'react';
 
 function TextEngraving(props) {

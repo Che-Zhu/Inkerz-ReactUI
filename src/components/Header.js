@@ -1,3 +1,5 @@
+/*THis componenet renders vanilla header with logo and links */
+
 import React from 'react';
 
 function Header() {

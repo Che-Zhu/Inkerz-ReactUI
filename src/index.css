@@ -34,6 +34,7 @@ body {
   border-style: solid;
 }
 
+/* Small screen control - changing grid laout to vertical */
 @media only screen and (max-width: 640px) {
   .app {
     display: grid;
