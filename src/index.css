@@ -21,7 +21,12 @@ body {
 
 .app {
   display: grid;
+  /* all contents to fill the height of the screen*/
+  min-height: 100vh;
   grid-template-columns: repeat(2, 1fr) auto;
+  /* allow rows to stick to header and top controls contents 
+  and rest to fot the screen*/
+  grid-auto-rows: max-content max-content 1fr;
   grid-template-areas:
     "header header header"
     "top-controls top-controls top-controls"

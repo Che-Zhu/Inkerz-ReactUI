@@ -11,7 +11,7 @@ property in App.js (state)
 
 import React, { Component } from 'react';
 
-class CaseSelection2 extends Component {
+class CaseSelection extends Component {
     /*class constructor */
     constructor(props) {
         super(props)
@@ -104,4 +104,4 @@ class CaseSelection2 extends Component {
     }
 }
 
-export default CaseSelection2
+export default CaseSelection
