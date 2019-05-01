@@ -14,7 +14,7 @@ class Main3DView extends Component {
       this.animate = this.animate.bind(this)
     }
   
-    componentDidMount() {
+    componentDidMount() { // HTML DOM
       const width = this.mount.clientWidth
       const height = this.mount.clientHeight
   
@@ -76,7 +76,7 @@ class Main3DView extends Component {
                 style={{ width: "100%", height: '400px' }}
                 ref={(mount) => { this.mount = mount }}
             />
-            <div>
+            <div>  {/* These data will be hidden or displayed in colsole for debug purpose, once the preview is fully functioning */}
                 <p>Integrate Three.js Viewer TBA!</p>
                 <p>Application State Checker (Troubleshooting/Remove in Final!)</p>
                 <p>Chosen Engraved Text: {this.props.app_states.chosen_engraved_text}</p>
