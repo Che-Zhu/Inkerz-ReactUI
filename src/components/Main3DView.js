@@ -25,6 +25,7 @@ class Main3DView extends Component {
         0.1,
         1000
       )
+      
       const renderer = new THREE.WebGLRenderer({ antialias: true })
 
   
