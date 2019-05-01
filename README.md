@@ -2,6 +2,7 @@
 
 ## 1. Install node-modules folder
 
+
 ### 1.1 Copy and paste your own node-modules folder to project folder:
 ![node-modules](node.png)
 
