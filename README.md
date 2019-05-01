@@ -1,21 +1,37 @@
-[Inkerz-ReactUI GitHub Page Website](http://cheaww.com/Inkerz-ReactUI/)
+# **Things you need to do after you downloaded/pulled code from this repository**
 
----
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Install node-modules folder
 
-Please copy back your own node-modules folder for your local development after you downloaded this repository:
+
+### 1.1 Copy and paste your own node-modules folder to project folder:
 ![node-modules](node.png)
 
-Alternatively, you can Use `npm install gh-pages --save-dev` to re-install node-modules.
+<center>OR</center>
 
+
+### 1.2 Use `npm install gh-pages --save-dev` to re-install node-modules.
+
+---
 Please also check that you have the following command in your **package.json** file:
 ![package.json](script.png)
 
-## React-color
-Please use command `npm install react-color --save` to install react color module.
+---
 
-## Three.js
-Please use command `npm install three --save-dev` to install Three.js.
+## 2. Install Modules
+`React will not work if any of these modules are not installed`
+#### React-color
+`npm install react-color --save`
+
+#### Three.js
+`npm install three --save-dev`
+
+#### React-file-reader
+`npm install react-file-reader --save`
+
+
+
+
+---
 
 ## Available Scripts
 
