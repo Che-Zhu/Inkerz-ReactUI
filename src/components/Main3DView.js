@@ -26,20 +26,17 @@ class Main3DView extends Component {
         1000
       )
       const renderer = new THREE.WebGLRenderer({ antialias: true })
-      const geometry = new THREE.BoxGeometry(1, 1, 1)
-      const material = new THREE.MeshBasicMaterial({ color: '#433F81' })
-      const cube = new THREE.Mesh(geometry, material)
+
   
       camera.position.z = 4
-      scene.add(cube)
+
       renderer.setClearColor('#000000')
       renderer.setSize(width, height)
   
       this.scene = scene
       this.camera = camera
       this.renderer = renderer
-      this.material = material
-      this.cube = cube
+
   
       this.mount.appendChild(this.renderer.domElement)
       this.start()
@@ -61,8 +58,7 @@ class Main3DView extends Component {
     }
   
     animate() {
-      this.cube.rotation.x += 0.01
-      this.cube.rotation.y += 0.01
+
   
       this.renderScene()
       this.frameId = window.requestAnimationFrame(this.animate)
