@@ -19,6 +19,7 @@ class App extends Component {
       chosen_case_colour: '',
       chosen_phone_case: '',
       chosen_export_3d_format: '',
+      chosen_3d_file_to_load: '',
       available_export_3d_formats: ['STL', 'OBJ', 'AFM', '3FM'],
       available_case_models: ['iphone6.1', 'iphone6.2', 'iphone6.3', 'ipad2.1', 'galaxyS9.1', 'galaxyS9.2', 'pixel2XL.1'],
     }
@@ -28,7 +29,9 @@ class App extends Component {
     this.updateEngravingText = this.updateEngravingText.bind(this)
     this.updateCaseColour = this.updateCaseColour.bind(this)
     this.updateChosenCase = this.updateChosenCase.bind(this)
+    this.updateChosen3DFileToLoad = this.updateChosen3DFileToLoad.bind(this)
     this.resetApp = this.resetApp.bind(this)
+
   }
   /* Updates chosen_export_3d_format App state property based on return 
   event target value*/
@@ -57,6 +60,10 @@ class App extends Component {
     this.setState({ chosen_phone_case: e })
   }
 
+  updateChosen3DFileToLoad(file) {
+    this.setState({ chosen_3d_file_to_load: file })
+  }
+
   /* App JSX render section. Works together with index.css in
   producing a layout (based on grid css*/
   render() {
@@ -64,7 +71,7 @@ class App extends Component {
       <div className="app" >
         <Header />
         <div className="top-controls">
-          <LoadControl />
+          <LoadControl on3DFileLoad={this.updateChosen3DFileToLoad} />
           <ResetControl onResetApp={this.resetApp} />
           <ExportControl
             export_3d_formats={this.state.available_export_3d_formats}
