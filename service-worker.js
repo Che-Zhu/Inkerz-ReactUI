@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Inkerz-ReactUI/precache-manifest.a22870651706cd289ad9ed5f9f024211.js"
+  "/Inkerz-ReactUI/precache-manifest.1935092ef0c0ebc632d969db997f9daa.js"
 );
 
 workbox.clientsClaim();
