@@ -1,4 +1,6 @@
+[Inkerz-ReactUI GitHub Page Website](http://cheaww.com/Inkerz-ReactUI/)
 
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Please copy back your own node-modules folder for your local development after you downloaded this repository:
