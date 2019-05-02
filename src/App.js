@@ -19,7 +19,8 @@ class App extends Component {
       chosen_case_colour: '',
       chosen_phone_case: '',
       chosen_export_3d_format: '',
-      chosen_3d_file_to_load: '',
+      chosen_3d_file_to_load: 'Something is wrong if this text displays',
+      chosen_3d_file_extension: '',
       available_export_3d_formats: ['STL', 'OBJ', 'AFM', '3FM'],
       available_case_models: ['iphone6.1', 'iphone6.2', 'iphone6.3', 'ipad2.1', 'galaxyS9.1', 'galaxyS9.2', 'pixel2XL.1'],
     }
@@ -60,8 +61,9 @@ class App extends Component {
     this.setState({ chosen_phone_case: e })
   }
 
-  updateChosen3DFileToLoad(file) {
+  updateChosen3DFileToLoad(file, fileExtension) {
     this.setState({ chosen_3d_file_to_load: file })
+    this.setState({ chosen_3d_file_extension: fileExtension})
   }
 
   /* App JSX render section. Works together with index.css in

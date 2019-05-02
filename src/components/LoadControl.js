@@ -6,15 +6,18 @@ import ReactFileReader from 'react-file-reader';
 class LoadControl extends Component {
 
     state = {
-        file: ""
+        file: "",
+        fileExtension: ""
     }
     handleFiles = file => {
+        console.log(file.fileList[0].name.split('.').pop())
         console.log(file.base64) /* remove just for logging */
         this.setState({
-            file: file.base64
+            file: file.base64,
+            fileExtension: file.fileList[0].name.split('.').pop()
         })
 
-        this.props.on3DFileLoad(this.state.file) /*load file upstream to App.js */
+        this.props.on3DFileLoad(this.state.file, this.state.fileExtension) /*load file upstream to App.js */
     }
 
     render() {
