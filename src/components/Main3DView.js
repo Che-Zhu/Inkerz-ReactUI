@@ -12,9 +12,11 @@ class Main3DView extends Component {
     this.start = this.start.bind(this)
     this.stop = this.stop.bind(this)
     this.animate = this.animate.bind(this)
+    this.insertObject = this.insertObject.bind(this)
   }
 
   componentDidMount() { // HTML DOM
+    var previous
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
 
@@ -31,7 +33,7 @@ class Main3DView extends Component {
 
     camera.position.z = 4
 
-    renderer.setClearColor('#000000')
+    renderer.setClearColor('#ffffff')
     renderer.setSize(width, height)
 
     this.scene = scene
@@ -40,6 +42,9 @@ class Main3DView extends Component {
 
 
     this.mount.appendChild(this.renderer.domElement)
+
+    
+
     this.start()
   }
 
@@ -48,6 +53,18 @@ class Main3DView extends Component {
     this.mount.removeChild(this.renderer.domElement)
   }
 
+   insertObject () {
+    let currentComponent = this;
+    if (this.props.app_states.chosen_3d_file_to_load !== "" && this.props.app_states.chosen_3d_file_to_load !== this.previous) {
+      this.previous = this.props.app_states.chosen_3d_file_to_load
+      console.log("success")
+      var loader = new THREE.ObjectLoader();
+      loader.load(this.props.app_states.chosen_3d_file_to_load,
+        function(obj){
+          currentComponent.scene.add(obj)
+        })
+      }
+  }
   start() {
     if (!this.frameId) {
       this.frameId = requestAnimationFrame(this.animate)
@@ -62,6 +79,8 @@ class Main3DView extends Component {
 
 
     this.renderScene()
+    this.insertObject()
+
     this.frameId = window.requestAnimationFrame(this.animate)
   }
 

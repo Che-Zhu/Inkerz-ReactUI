@@ -9,10 +9,11 @@ class LoadControl extends Component {
         file: ""
     }
     handleFiles = file => {
-        console.log("content", file) /* remove just for logging */
+        console.log(file.base64) /* remove just for logging */
         this.setState({
             file: file.base64
         })
+
         this.props.on3DFileLoad(this.state.file) /*load file upstream to App.js */
     }
 
