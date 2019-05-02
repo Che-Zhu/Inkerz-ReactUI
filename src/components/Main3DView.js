@@ -8,13 +8,15 @@ import * as THREE from 'three'
 class Main3DView extends Component {
   constructor(props) {
     super(props)
-
     this.start = this.start.bind(this)
     this.stop = this.stop.bind(this)
     this.animate = this.animate.bind(this)
+    this.insertObject = this.insertObject.bind(this)
   }
 
   componentDidMount() { // HTML DOM
+    var previous
+    this.previous = previous
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
 
@@ -28,24 +30,35 @@ class Main3DView extends Component {
 
     const renderer = new THREE.WebGLRenderer({ antialias: true })
 
-
     camera.position.z = 4
 
-    renderer.setClearColor('#000000')
+    renderer.setClearColor('#ffffff')
     renderer.setSize(width, height)
 
     this.scene = scene
     this.camera = camera
     this.renderer = renderer
 
-
     this.mount.appendChild(this.renderer.domElement)
+
     this.start()
   }
 
   componentWillUnmount() {
     this.stop()
     this.mount.removeChild(this.renderer.domElement)
+  }
+
+  insertObject () {
+    let currentComponent = this;
+    if (this.props.app_states.chosen_3d_file_to_load !== "Something is wrong if this text displays" && this.props.app_states.chosen_3d_file_to_load !== this.previous) {
+      this.previous = this.props.app_states.chosen_3d_file_to_load
+      var loader = new THREE.ObjectLoader();
+      loader.load(this.props.app_states.chosen_3d_file_to_load,
+      function(obj){
+        currentComponent.scene.add(obj)
+      })
+    }
   }
 
   start() {
@@ -59,9 +72,8 @@ class Main3DView extends Component {
   }
 
   animate() {
-
-
     this.renderScene()
+    this.insertObject()
     this.frameId = window.requestAnimationFrame(this.animate)
   }
 
@@ -84,6 +96,7 @@ class Main3DView extends Component {
           <p>Chosen Phone Case: {this.props.app_states.chosen_phone_case}</p>
           <p>Chosen Save 3D Format: {this.props.app_states.chosen_export_3d_format}</p>
           <p>Chosen Load 3D Format: {this.props.app_states.chosen_3d_file_to_load}</p>
+          <p>File extension display test: {this.props.app_states.chosen_3d_file_extension}</p>
 
         </div>
 
