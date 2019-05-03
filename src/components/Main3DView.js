@@ -3,6 +3,8 @@ updating any changes to said model */
 
 import React, { Component } from 'react'
 import * as THREE from 'three'
+import OBJLoader from 'three-obj-loader';
+OBJLoader(THREE);
 
 
 class Main3DView extends Component {
@@ -50,14 +52,28 @@ class Main3DView extends Component {
   }
 
   insertObject () {
+    this.THREE = THREE;
     let currentComponent = this;
     if (this.props.app_states.chosen_3d_file_to_load !== "Something is wrong if this text displays" && this.props.app_states.chosen_3d_file_to_load !== this.previous) {
       this.previous = this.props.app_states.chosen_3d_file_to_load
-      var loader = new THREE.ObjectLoader();
-      loader.load(this.props.app_states.chosen_3d_file_to_load,
-      function(obj){
-        currentComponent.scene.add(obj)
-      })
+      if (this.props.app_states.chosen_3d_file_extension === 'json') {
+        var loader = new THREE.ObjectLoader();
+        loader.load(this.props.app_states.chosen_3d_file_to_load,
+        function(obj){
+          currentComponent.scene.add(obj)
+        })
+      }
+
+      if (this.props.app_states.chosen_3d_file_extension === 'obj') {
+        loader = new this.THREE.OBJLoader();
+        loader.load(this.props.app_states.chosen_3d_file_to_load,
+        function(object){
+          currentComponent.scene.add(object )
+          currentComponent.renderScene();
+        })
+      }
+
+
     }
   }
 
