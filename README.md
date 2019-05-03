@@ -28,7 +28,8 @@ Please also check that you have the following command in your **package.json** f
 #### React-file-reader
 `npm install react-file-reader --save`
 
-
+#### Three-OBJ-Loader
+`npm install --save three-obj-loader`
 
 
 ---
