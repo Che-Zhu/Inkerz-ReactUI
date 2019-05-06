@@ -6,7 +6,6 @@ onChangeComplete={props.onCaseColourSelect} updates the chosen_case_colour state
 import React from 'react'
 import reactCSS from 'reactcss'
 import { ChromePicker } from 'react-color'
-import CaseColourPicker from './CaseColourPicker_old';
 
 class CaseColourPicker extends React.Component {
     state = {
