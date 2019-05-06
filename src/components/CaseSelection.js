@@ -18,7 +18,7 @@ class CaseSelection extends Component {
 
         /* App state*/
         this.state = {
-            caseList: [],
+            caseList: this.props.case_list,
             searchString: ''
         }
         /* local function bind to class local context */
@@ -55,18 +55,19 @@ class CaseSelection extends Component {
                 }
             }
             else {
-                /* if there is no search term typed, reset to empty list (hide)*/
+                /* if there is no search term typed, reset to full list*/
                 return {
-                    caseList: []
+                    caseList: this.props.case_list
                 }
             }
         })
     }
-    /* reset the search String and case list to none (nothing to view)*/
-    resetSearch() {
+    /* reset the search String and case list to full list*/
+    resetSearch(e) {
         this.setState({
             searchString: '',
-            caseList: []
+            caseList: this.props.case_list,
+
         })
     }
     /* what getrs shown in the component (render) */
@@ -76,7 +77,7 @@ class CaseSelection extends Component {
             <div>
                 {/* search text field */}
                 <div>
-                    Search for Phone Case to Model:
+                    Case Search (Filter):
                      <input type="text"
                         className="search-3d"
                         value={this.state.searchString}
@@ -93,7 +94,7 @@ class CaseSelection extends Component {
                             key={phone_case}
                             style={{ backgroundImage: `url(images/${phone_case}.png)` }}
                             value={phone_case}
-                            /* onClick both updates the case selection and resets/clears the search (hides resuts)*/
+                            /* onClick both updates the case selection and resets/clears the search */
                             onClick={() => { this.props.onCaseSelect(phone_case); this.resetSearch() }}>
                             <p>{phone_case}</p>
                         </button>
