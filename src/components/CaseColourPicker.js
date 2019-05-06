@@ -8,7 +8,7 @@ import reactCSS from 'reactcss'
 import { ChromePicker } from 'react-color'
 import CaseColourPicker from './CaseColourPicker_old';
 
-class SketchExample extends React.Component {
+class CaseColourPicker extends React.Component {
     state = {
         displayColorPicker: false,
         color: {
