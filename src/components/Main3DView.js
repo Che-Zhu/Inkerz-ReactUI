@@ -1,124 +1,76 @@
-/*This compoinent is main ThreeJS viewer, displaying the 3D model and
-updating any changes to said model */
+import React from 'react';
+import DemoScene from './DemoScene';
 
-import React, { Component } from 'react'
-import * as THREE from 'three'
-import OBJLoader from 'three-obj-loader';
-OBJLoader(THREE);
-
-
-class Main3DView extends Component {
-  constructor(props) {
-    super(props)
-    this.start = this.start.bind(this)
-    this.stop = this.stop.bind(this)
-    this.animate = this.animate.bind(this)
-    this.insertObject = this.insertObject.bind(this)
-  }
-
-  componentDidMount() { // HTML DOM
-    var previous
-    this.previous = previous
-    const width = this.mount.clientWidth
-    const height = this.mount.clientHeight
-
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      width / height,
-      0.1,
-      1000
-    )
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
-
-    camera.position.z = 4
-
-    renderer.setClearColor('#ffffff')
-    renderer.setSize(width, height)
-
-    this.scene = scene
-    this.camera = camera
-    this.renderer = renderer
-
-    this.mount.appendChild(this.renderer.domElement)
-
-    this.start()
-  }
-
-  componentWillUnmount() {
-    this.stop()
-    this.mount.removeChild(this.renderer.domElement)
-  }
-
-  insertObject () {
-    this.THREE = THREE;
-    let currentComponent = this;
-    if (this.props.app_states.chosen_3d_file_to_load !== "Something is wrong if this text displays" && this.props.app_states.chosen_3d_file_to_load !== this.previous) {
-      this.previous = this.props.app_states.chosen_3d_file_to_load
-      if (this.props.app_states.chosen_3d_file_extension === 'json') {
-        var loader = new THREE.ObjectLoader();
-        loader.load(this.props.app_states.chosen_3d_file_to_load,
-        function(obj){
-          currentComponent.scene.add(obj)
-        })
-      }
-
-      if (this.props.app_states.chosen_3d_file_extension === 'obj') {
-        loader = new this.THREE.OBJLoader();
-        loader.load(this.props.app_states.chosen_3d_file_to_load,
-        function(object){
-          currentComponent.scene.add(object )
-          currentComponent.renderScene();
-        })
-      }
-
-
+class Main3DView extends React.Component {
+    constructor(props) {
+        super(props)
+        
+        /* App state*/
+        this.state = {
+        caseColor: this.props.app_states.chosen_case_colour,
+        caseSize: 20,
+        rotationX: 0,
+        rotationY: 0,
+        PhoneCase: "iPhone X",
+        }
     }
-  }
-
-  start() {
-    if (!this.frameId) {
-      this.frameId = requestAnimationFrame(this.animate)
+    
+    changeSize() {
+        let value = document.getElementById("caseSizeRange").value
+        this.setState({ caseSize: value})
     }
-  }
+    
+    changeRotationX() {
+        let value = document.getElementById("rotationXRange").value
+        this.setState({ rotationX: value})
+    }
+    
+    changeRotationY() {
+        let value = document.getElementById("rotationYRange").value
+        this.setState({ rotationY: value})
+    }
+    
+    render() {
+        this.state.caseColor = this.props.app_states.chosen_case_colour
+        this.state.PhoneCase = this.props.app_states.chosen_phone_case
 
-  stop() {
-    cancelAnimationFrame(this.frameId)
-  }
-
-  animate() {
-    this.renderScene()
-    this.insertObject()
-    this.frameId = window.requestAnimationFrame(this.animate)
-  }
-
-  renderScene() {
-    this.renderer.render(this.scene, this.camera)
-  }
-
-  render(props) {
-    return (
-      <div>
-        <div
-          style={{ width: "100%", height: '400px' }}
-          ref={(mount) => { this.mount = mount }}
-        />
-        <div>  {/* These data will be hidden or displayed in colsole for debug purpose, once the preview is fully functioning */}
-          <p>Integrate Three.js Viewer TBA!</p>
-          <p>Application State Checker (Troubleshooting/Remove in Final!)</p>
-          <p>Chosen Engraved Text: {this.props.app_states.chosen_engraved_text}</p>
-          <p>Chosen Case Colour: {this.props.app_states.chosen_case_colour}</p>
-          <p>Chosen Phone Case: {this.props.app_states.chosen_phone_case}</p>
-          <p>Chosen Save 3D Format: {this.props.app_states.chosen_export_3d_format}</p>
-          <p>Chosen Load 3D Format: {this.props.app_states.chosen_3d_file_to_load}</p>
-          <p>File extension display test: {this.props.app_states.chosen_3d_file_extension}</p>
-
-        </div>
-
-      </div>
-
-    )
-  }
+        return (
+                <div className="main3D">
+                <div className="fileViewerLine">
+                <p>
+                Z<br />
+                O<br />
+                O<br />
+                M<br />
+                </p>
+                <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={event => this.changeSize()}/>
+                
+                <div className="fileViewer">
+                <DemoScene
+                chosenCaseColor={this.state.caseColor}
+                chosenCaseSize={this.state.caseSize}
+                chosenRotationX={this.state.rotationX}
+                chosenRotationY={this.state.rotationY}
+                chosenPhoneCase={this.state.PhoneCase}
+                />
+                </div>
+                
+                <input type="range" id="rotationXRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={event => this.changeRotationX()}/>
+                <p>
+                R<br />
+                O<br />
+                T<br />
+                A<br />
+                T<br />
+                E<br />
+                </p>
+                </div>
+                
+                <input type="range" id="rotationYRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={event => this.changeRotationY()}></input>
+                <p>ROTATE</p>
+                </div>
+                );
+    }
 }
+
 export default Main3DView

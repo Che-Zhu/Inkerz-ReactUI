@@ -41,8 +41,7 @@ class CaseSelection extends Component {
 
         /* set state of search String to changed value from input text*/
         this.setState({
-            searchString: this.refs.search.value.trim(),
-
+            searchString: this.refs.search.value,
         })
         /* filter current state of caseList based on seach being present,
         showing only results matching the searched letters in case name*/
@@ -51,7 +50,7 @@ class CaseSelection extends Component {
             if (currentState.searchString.length > 0) {
                 return {
                     /* updates (filters) caseList with only array elements matching the searchString value */
-                    caseList: currentState.caseList.filter((phone_case) => phone_case.includes(currentState.searchString))
+                    caseList: currentState.caseList.filter((phone_case) => phone_case.toLowerCase().includes(currentState.searchString.toLowerCase()))
                 }
             }
             else {
@@ -95,7 +94,7 @@ class CaseSelection extends Component {
                             style={{ backgroundImage: `url(images/${phone_case}.png)` }}
                             value={phone_case}
                             /* onClick both updates the case selection and resets/clears the search */
-                            onClick={() => { this.props.onCaseSelect(phone_case); this.resetSearch() }}>
+                            onClick={() => { this.props.onCaseSelect(phone_case); this.resetSearch(); alert(phone_case) }}>
                             <p>{phone_case}</p>
                         </button>
                     ))

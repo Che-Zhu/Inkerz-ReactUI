@@ -31,7 +31,10 @@ Please also check that you have the following command in your **package.json** f
 #### Three-OBJ-Loader
 `npm install --save three-obj-loader`
 
-
+## This project uses
+- [three](https://www.npmjs.com/package/three)
+- [react-three-renderer](https://www.npmjs.com/package/react-three-renderer)
+- [react-three-renderer-objects](https://www.npmjs.com/package/react-three-renderer-objects)
 ---
 
 ## Available Scripts
