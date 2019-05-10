@@ -1,4 +1,4 @@
-# **Things you need to do after you downloaded/pulled code from this repository**
+# **Several Things you need to do after you downloaded/pulled code from this repository**
 
 ## 1. Install node-modules folder
 
@@ -18,7 +18,7 @@ Please also check that you have the following command in your **package.json** f
 ---
 
 ## 2. Install Modules
-`React will not work if any of these modules are not installed`
+`React will not work if any of these modules is not installed`
 #### React-color
 `npm install react-color --save`
 
