@@ -62,7 +62,7 @@ class App extends Component {
     }
 
     updateChosen3DFileToLoad(file, fileExtension) {
-        this.setState({ chosen_3d_file_to_load: file })
+        this.setState({ chosen_phone_case: file })
         this.setState({ chosen_3d_file_extension: fileExtension })
     }
 

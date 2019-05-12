@@ -22,7 +22,7 @@ var rotY = 0;
 var rotX = 0;
 var phoneCaseTitle = "iPhone X";
 
-var myModel;
+var myModel = '1';
 var RenderInfo;
 
 class DemoScene extends React.Component {
@@ -76,8 +76,13 @@ class DemoScene extends React.Component {
       myModel = Pixel2XLModel
     } else {
       //if there is no matching model use iphone x model
-      myModel = iPhoneXModel
-      RenderInfo = "Model Not Found Rendering iPhone X Model"
+      myModel = phoneCaseTitle
+      if (myModel !== 'iPhone X') {
+        RenderInfo = "Using uploaded Model"
+      } else {
+        RenderInfo = "Model Not Found Rendering iPhone X Model"
+      }
+      
     }
 
     return (
