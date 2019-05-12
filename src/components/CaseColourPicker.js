@@ -10,12 +10,7 @@ import { ChromePicker } from 'react-color'
 class CaseColourPicker extends React.Component {
     state = {
         displayColorPicker: false,
-        color: {
-            r: '241',
-            g: '112',
-            b: '19',
-            a: '1',
-        },
+        color: this.props.updated_case_colour
     };
 
     handleClick = () => {
@@ -28,7 +23,7 @@ class CaseColourPicker extends React.Component {
 
     handleChange = (color) => {
         this.setState({
-            color: color.rgb
+            color: color
         })
 
     };
@@ -41,7 +36,7 @@ class CaseColourPicker extends React.Component {
                     width: '30px',
                     height: '14px',
                     borderRadius: '2px',
-                    background: `rgba(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b}, ${this.state.color.a})`,
+                    background: this.props.updated_case_colour,
                 },
                 swatch: {
                     padding: '5px',
