@@ -22,7 +22,7 @@ class App extends Component {
         chosen_3d_file_to_load: 'Something is wrong if this text displays',
         chosen_3d_file_extension: '',
         available_export_3d_formats: ['STL', 'OBJ', 'AFM', '3FM'],
-        available_case_models: ['iPhone-X','iPhone-8','iPhone-7','iPad-9.7','galaxyS9.1','Galaxy-S5','pixel2XL.1'],
+        available_case_models: ['iPhone-X','iPhone-8-Plus','iPhone-7','iPad-9.7','Galaxy-S10','Galaxy-S5','Pixel2XL'],
         }
         
         /* section to bind functions to local class context */
