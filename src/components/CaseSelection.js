@@ -94,7 +94,7 @@ class CaseSelection extends Component {
                             style={{ backgroundImage: `url(images/${phone_case}.png)` }}
                             value={phone_case}
                             /* onClick both updates the case selection and resets/clears the search */
-                            onClick={() => { this.props.onCaseSelect(phone_case); this.resetSearch(); alert(phone_case) }}>
+                            onClick={() => { this.props.onCaseSelect(phone_case); this.resetSearch()}}>
                             <p>{phone_case}</p>
                         </button>
                     ))

@@ -4,11 +4,14 @@ import React from "react";
 import React3 from "react-three-renderer";
 import ObjectModel from 'react-three-renderer-objects';
 
+//import models
 import iPhoneXModel from "../../assets/iPhone X.obj";
-import iPhone8Model from "../../assets/iPhone 8.obj";
+import iPhone8Model from "../../assets/iPhone 8 Plus.obj";
 import iPhone7Model from "../../assets/iPhone 7.obj";
 import iPad97Model from "../../assets/iPad 9.7.obj";
 import GalaxyS5Model from "../../assets/Galaxy S5.obj";
+import GalaxyS10Model from "../../assets/Galaxy S10.obj";
+import Pixel2XLModel from "..//../assets/Pixel 2XL.obj";
 
 var width = 500;
 var height = 400;
@@ -55,11 +58,11 @@ class DemoScene extends React.Component {
     phoneCaseTitle=this.props.chosenPhoneCase;
 
     RenderInfo = "Rendering " + phoneCaseTitle + " Model"
-
+    
     //change model based on title
-    if (phoneCaseTitle === "iPhone X") {
+    if (phoneCaseTitle === "iPhone-X") {
       myModel = iPhoneXModel
-    } else if (phoneCaseTitle === "iPhone-8") {
+    } else if (phoneCaseTitle === "iPhone-8-Plus") {
       myModel = iPhone8Model
     } else if (phoneCaseTitle === "iPhone-7") {
       myModel = iPhone7Model
@@ -67,6 +70,10 @@ class DemoScene extends React.Component {
       myModel = iPad97Model
     } else if (phoneCaseTitle === "Galaxy-S5") {
       myModel = GalaxyS5Model
+    } else if (phoneCaseTitle === "Galaxy-S10") {
+      myModel = GalaxyS10Model
+    } else if (phoneCaseTitle === "Pixel2XL") {
+      myModel = Pixel2XLModel
     } else {
       //if there is no matching model use iphone x model
       myModel = iPhoneXModel
@@ -75,14 +82,14 @@ class DemoScene extends React.Component {
 
     return (
       <div>
-<React3
+        <React3
         mainCamera="camera"
         antialias
         shadowMapEnabled
         width={width}
         height={height}
         alpha={true}
-      >      
+        >      
         <scene ref="scene">
           <perspectiveCamera
             key={`perspectiveCamera`}
@@ -156,18 +163,20 @@ class DemoScene extends React.Component {
             />
           </group>
 
-          <group name="exampleGroup" rotation={new THREE.Euler(rotY, rotX, 0)}>
-            <ObjectModel
-              name="exampleObject"
-              model={myModel}
-              scene={this.state.scene}
-              group="exampleGroup"
-            />
+          <group name="exampleGroup" rotation={new THREE.Euler(rotY, rotX, 0)}
+          //change key when model changes so that it gets re-rendered
+          key = {phoneCaseTitle}> 
+          <ObjectModel
+            name="exampleObject"
+            //this is the model we are rendering
+            model={myModel}
+            scene={this.state.scene}
+            group="exampleGroup"
+          />
           </group>
         </scene>
       </React3>
       <p>{RenderInfo}</p>
-
       </div>
     );
   }
