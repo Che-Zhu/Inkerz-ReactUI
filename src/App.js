@@ -45,7 +45,7 @@ class App extends Component {
             chosen_engraved_text: '',
             chosen_case_colour: '#44557E',
             chosen_export_3d_format: '',
-            chosen_phone_case: '',
+            chosen_phone_case: 'iPhone X',
         })
     }
 
