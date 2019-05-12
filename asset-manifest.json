@@ -1,11 +1,13 @@
 {
   "main.css": "static/css/main.1f7ade8f.css",
   "main.css.map": "static/css/main.1f7ade8f.css.map",
-  "main.js": "static/js/main.6828a705.js",
-  "main.js.map": "static/js/main.6828a705.js.map",
+  "main.js": "static/js/main.864bc64a.js",
+  "main.js.map": "static/js/main.864bc64a.js.map",
+  "static\\media\\Galaxy S10.obj": "static/media/Galaxy S10.c6f6217f.obj",
   "static\\media\\Galaxy S5.obj": "static/media/Galaxy S5.cc3a88ae.obj",
+  "static\\media\\Pixel 2XL.obj": "static/media/Pixel 2XL.ad134ee6.obj",
   "static\\media\\iPad 9.7.obj": "static/media/iPad 9.7.12dcb284.obj",
-  "static\\media\\iPhone 7.obj": "static/media/iPhone 7.c59d5f38.obj",
-  "static\\media\\iPhone 8.obj": "static/media/iPhone 8.c59d5f38.obj",
+  "static\\media\\iPhone 7.obj": "static/media/iPhone 7.e517b11d.obj",
+  "static\\media\\iPhone 8 Plus.obj": "static/media/iPhone 8 Plus.dde39c30.obj",
   "static\\media\\iPhone X.obj": "static/media/iPhone X.4f184b29.obj"
 }
