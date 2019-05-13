@@ -338,7 +338,7 @@ body {
 }
 
 #rotationYRange {
-    width: 100%; /* Full-width */
+    width: 80%; /* Full-width */
     height: 25px; /* Specified height */
 }
 
@@ -346,4 +346,32 @@ body {
     -webkit-appearance: slider-vertical;
     width: 20px;
     height: 300px;
+}
+
+.caseSize {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width:50px;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.rotationX {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width:50px;
+    text-align: center;
+    padding-right: 10px;
+}
+
+.rotationY {
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
 }
