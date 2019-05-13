@@ -32,6 +32,21 @@ class DemoScene extends React.Component {
     }
   }
 
+  objectLabelDisplayLogic() {
+    // if we detect an object as string, with substring base64, mark it with
+    // laber of customer loaded
+    if (this.props.chosenPhoneCase.indexOf("base64") > 0) {
+      return "Customer"
+    }
+    // otherwise we need to load it from file system, 
+    // including the full asset path under public/assets folder
+    // label it as such
+    else {
+      return this.props.chosenPhoneCase
+    }
+  }
+
+
   componentDidMount() {
     let { scene } = this.refs;
     this.setState({ scene });
@@ -136,7 +151,7 @@ class DemoScene extends React.Component {
             </group>
           </scene>
         </React3>
-        <p>{"Rendering " + this.state.RenderInfo + " Model"}</p>
+        <p>{"Rendering " + this.objectLabelDisplayLogic() + " Model"}</p>
       </div>
     );
   }
