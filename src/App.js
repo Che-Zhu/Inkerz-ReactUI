@@ -17,7 +17,7 @@ class App extends Component {
         this.state = {
             chosen_engraved_text: '',
             chosen_case_colour: '#44557E',
-            chosen_phone_case: 'iPhone X',
+            chosen_phone_case: 'iPhone-X',
             chosen_export_3d_format: '',
             chosen_3d_file_to_load: 'Something is wrong if this text displays',
             chosen_3d_file_extension: '',
@@ -45,7 +45,7 @@ class App extends Component {
             chosen_engraved_text: '',
             chosen_case_colour: '#44557E',
             chosen_export_3d_format: '',
-            chosen_phone_case: 'iPhone X',
+            chosen_phone_case: 'iPhone-X',
         })
     }
 
