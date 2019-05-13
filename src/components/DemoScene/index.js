@@ -4,33 +4,32 @@ import React from "react";
 import React3 from "react-three-renderer";
 import ObjectModel from 'react-three-renderer-objects';
 
-//import models
-import iPhoneXModel from "../../assets/iPhone X.obj";
-import iPhone8Model from "../../assets/iPhone 8 Plus.obj";
-import iPhone7Model from "../../assets/iPhone 7.obj";
-import iPad97Model from "../../assets/iPad 9.7.obj";
-import GalaxyS5Model from "../../assets/Galaxy S5.obj";
-import GalaxyS10Model from "../../assets/Galaxy S10.obj";
-import Pixel2XLModel from "..//../assets/Pixel 2XL.obj";
-
-// var myModel = '1';
 
 class DemoScene extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.initialState;
-  }
-
-  get initialState() {
-    return {
+    this.state = {
       cameraPosition: new THREE.Vector3(0, 300, 750),
       groupRotation: new THREE.Euler(0, 0, 0),
       scene: {},
       width: 500,
       height: 400,
       RenderInfo: "",
-      myModel: this.props.chosenPhoneCase,
-    };
+      assets_path: "assets/"
+    }
+    // this.objectLoadLogic = this.objectLoadLogic.bind()
+  }
+
+  objectLoadLogic() {
+    // if we detect an object as string, with substring base64, then load it as is
+    if (this.props.chosenPhoneCase.indexOf("base64") > 0) {
+      return this.props.chosenPhoneCase
+    }
+    // otherwise we need to load it from file system, 
+    // including the full asset path under public/assets folder
+    else {
+      return (this.state.assets_path + this.props.chosenPhoneCase + ".obj")
+    }
   }
 
   componentDidMount() {
@@ -39,34 +38,6 @@ class DemoScene extends React.Component {
   }
 
   render() {
-
-    //change model based on title
-    if (this.props.chosenPhoneCase === "iPhone-X") {
-      this.state.myModel = iPhoneXModel
-    } else if (this.props.chosenPhoneCase === "iPhone-8-Plus") {
-      this.state.myModel = iPhone8Model
-    } else if (this.props.chosenPhoneCase === "iPhone-7") {
-      this.state.myModel = iPhone7Model
-    } else if (this.props.chosenPhoneCase === "iPad-9.7") {
-      this.state.myModel = iPad97Model
-    } else if (this.props.chosenPhoneCase === "Galaxy-S5") {
-      this.state.myModel = GalaxyS5Model
-    } else if (this.props.chosenPhoneCase === "Galaxy-S10") {
-      this.state.myModel = GalaxyS10Model
-    } else if (this.props.chosenPhoneCase === "Pixel2XL") {
-      this.state.myModel = Pixel2XLModel
-    } else {
-      //if there is no matching model use iphone x model
-      // console.log("Model is", this.props.chosenPhoneCase)
-      this.state.myModel = this.props.chosenPhoneCase // <<<<<<<<PROBLEM PROBLEM<<<<<<<<<<
-      if (this.state.myModel !== 'iPhone X') {
-        this.state.RenderInfo = "Using uploaded Model"
-      } else {
-        this.state.RenderInfo = "Model Not Found Rendering iPhone X Model"
-        this.state.myModel = iPhoneXModel
-      }
-
-    }
 
     return (
       <div>
@@ -157,10 +128,11 @@ class DemoScene extends React.Component {
               <ObjectModel
                 name="exampleObject"
                 //this is the model we are rendering
-                model={this.state.myModel}
+                model={this.objectLoadLogic()}
                 scene={this.state.scene}
                 group="exampleGroup"
               />
+              {/* {console.log("model is:", this.objectLoadLogic())} */}
             </group>
           </scene>
         </React3>
