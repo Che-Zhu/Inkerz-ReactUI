@@ -29,7 +29,7 @@ class DemoScene extends React.Component {
       width: 500,
       height: 400,
       RenderInfo: "",
-      myModel: this.iphoneXModel,
+      myModel: this.props.chosenPhoneCase,
     };
   }
 
@@ -57,7 +57,8 @@ class DemoScene extends React.Component {
       this.state.myModel = Pixel2XLModel
     } else {
       //if there is no matching model use iphone x model
-      this.state.myModel = this.props.chosenPhoneCase // <<<<<<<<PROBLEM<<<<<<<<<<
+      // console.log("Model is", this.props.chosenPhoneCase)
+      this.state.myModel = this.props.chosenPhoneCase // <<<<<<<<PROBLEM PROBLEM<<<<<<<<<<
       if (this.state.myModel !== 'iPhone X') {
         this.state.RenderInfo = "Using uploaded Model"
       } else {
@@ -81,7 +82,7 @@ class DemoScene extends React.Component {
             <perspectiveCamera
               key={`perspectiveCamera`}
               name="camera"
-              fov={this.props.chosenCaseSize}
+              fov={parseInt(this.props.chosenCaseSize)}
               aspect={this.state.width / this.state.height}
               near={0.1}
               far={1000}
@@ -163,7 +164,7 @@ class DemoScene extends React.Component {
             </group>
           </scene>
         </React3>
-        <p>{"Rendering " + this.props.chosenPhoneCase + " Model"}</p>
+        <p>{"Rendering " + this.state.RenderInfo + " Model"}</p>
       </div>
     );
   }
