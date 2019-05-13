@@ -1,13 +1,13 @@
 {
   "main.css": "static/css/main.1f7ade8f.css",
   "main.css.map": "static/css/main.1f7ade8f.css.map",
-  "main.js": "static/js/main.49a6b866.js",
-  "main.js.map": "static/js/main.49a6b866.js.map",
-  "static/media/Galaxy S10.obj": "static/media/Galaxy S10.5210c071.obj",
-  "static/media/Galaxy S5.obj": "static/media/Galaxy S5.b8758656.obj",
-  "static/media/Pixel 2XL.obj": "static/media/Pixel 2XL.7ebb556a.obj",
-  "static/media/iPad 9.7.obj": "static/media/iPad 9.7.82a882e5.obj",
-  "static/media/iPhone 7.obj": "static/media/iPhone 7.9a174f40.obj",
-  "static/media/iPhone 8 Plus.obj": "static/media/iPhone 8 Plus.bf692289.obj",
-  "static/media/iPhone X.obj": "static/media/iPhone X.e1c5e14e.obj"
+  "main.js": "static/js/main.9d8ccaf0.js",
+  "main.js.map": "static/js/main.9d8ccaf0.js.map",
+  "static\\media\\Galaxy S10.obj": "static/media/Galaxy S10.c6f6217f.obj",
+  "static\\media\\Galaxy S5.obj": "static/media/Galaxy S5.cc3a88ae.obj",
+  "static\\media\\Pixel 2XL.obj": "static/media/Pixel 2XL.ad134ee6.obj",
+  "static\\media\\iPad 9.7.obj": "static/media/iPad 9.7.12dcb284.obj",
+  "static\\media\\iPhone 7.obj": "static/media/iPhone 7.e517b11d.obj",
+  "static\\media\\iPhone 8 Plus.obj": "static/media/iPhone 8 Plus.dde39c30.obj",
+  "static\\media\\iPhone X.obj": "static/media/iPhone X.4f184b29.obj"
 }
