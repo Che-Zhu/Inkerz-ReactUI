@@ -347,3 +347,12 @@ body {
     width: 20px;
     height: 300px;
 }
+
+//componentDidMount() {
+    //this component is to fetch data into the loader
+    //fetch('...')
+      //.then(response => data.json());
+      //.then(data => this.App({ data }));
+  //}
+
+//export default App;
