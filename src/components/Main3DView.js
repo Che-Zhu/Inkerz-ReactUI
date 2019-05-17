@@ -36,15 +36,17 @@ class Main3DView extends React.Component {
 
         return (
             <div className="main3D">
+            <br></br>
                 <div className="fileViewerLine">
-                    <p>
-                        Z<br />
-                        O<br />
-                        O<br />
-                        M<br />
-                    </p>
-                    <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={() => this.changeSize()} />
-
+                <div className="caseSize">
+                <p className="whiteText">
+                    Z<br />
+                    O<br />
+                    O<br />
+                    M<br />
+                </p>
+                <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={() => this.changeSize()} />
+                </div>
                     <div className="fileViewer">
                         <DemoScene
                             // chosenCaseColor={this.state.caseColor}
@@ -57,8 +59,9 @@ class Main3DView extends React.Component {
                         />
                     </div>
 
+                    <div className="rotationX">
                     <input type="range" id="rotationXRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationX()} />
-                    <p>
+                    <p className="whiteText">
                         R<br />
                         O<br />
                         T<br />
@@ -67,9 +70,14 @@ class Main3DView extends React.Component {
                         E<br />
                     </p>
                 </div>
+                    
+                </div>
 
+                <div className="rotationY">
                 <input type="range" id="rotationYRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationY()}></input>
-                <p>ROTATE</p>
+                <p className="whiteText">ROTATE</p>
+                </div>
+                
             </div>
         );
     }
