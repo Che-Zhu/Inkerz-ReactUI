@@ -495,6 +495,7 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   .card-back {
     display: flex;
     font-size: 20px;
+    text-shadow: 2px 2px 4px #000000;
     color: #f2f2f2;
     justify-content: center;
     align-items: center;
