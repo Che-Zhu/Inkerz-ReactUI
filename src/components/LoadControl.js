@@ -26,7 +26,7 @@ class LoadControl extends Component {
                 {/* NEEDS a function to load 3D model bound in App.js!!!! */}
 
                 <ReactFileReader fileTypes={[".obj", ".json"]} base64={true} handleFiles={this.handleFiles}>
-                    <button className="button-3d">Load 3D Model</button>
+                    <button className="loadButton">Load 3D Model</button>
                 </ReactFileReader>
             </div >
         )
