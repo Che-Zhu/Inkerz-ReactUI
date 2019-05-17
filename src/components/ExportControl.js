@@ -13,7 +13,7 @@ function ExportControl(props) {
                 ))}
             </select>
             {/* NEEDS a function to export 3D model bound in App.js!!!! */}
-            <button className="button-3d">Export 3D Model</button>
+            <button className="exportButton">Export 3D Model</button>
         </div>
     )
 }
