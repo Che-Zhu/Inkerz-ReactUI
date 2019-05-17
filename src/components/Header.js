@@ -10,8 +10,8 @@ function Header() {
             </div>
             <div className="nav-links">
                 <a href="index.html">3D MODELER</a>
-                <a href="index.html">WHY INKERZ?</a>
-                <a href="index.html">CONTACT</a>
+                <a href="https://inkerz.com">WHY INKERZ?</a>
+                <a href="https://inkerz.com/contact/">CONTACT</a>
             </div>
         </div>
     )
