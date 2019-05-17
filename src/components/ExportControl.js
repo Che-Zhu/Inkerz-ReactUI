@@ -6,7 +6,12 @@ import React from 'react';
 function ExportControl(props) {
     return (
         <div className="export-control">
-            <select className="select-3d" onChange={props.on3DFormatSelect}>
+            <select 
+            className="select-3d" 
+            onChange={props.on3DFormatSelect}
+            style={{backgroundImage: "url(images/select-arrow.png)",
+            backgroundRepeat: 'no-repeat'}}
+            >
                 <option value="">Select Format</option>
                 {props.export_3d_formats.map((format) => (
                     <option key={format} value={format} >.{format}</option>
