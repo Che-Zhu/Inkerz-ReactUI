@@ -8,11 +8,11 @@ function TextEngraving(props) {
         <div>
             <div>
                 <label htmlFor="text-to-engrave">
-                    <p>What to engrave into case?</p>
+                    <p className="whiteText">What to engrave into case?</p>
                 </label>
                 <input
                     id="text-to-engrave"
-                    className="search-3d"
+                    className="engrave-3d"
                     onChange={props.onEngraveTextChange}
                     value={props.engraved} placeholder="Text to Engrave"
                 />
