@@ -50,10 +50,16 @@ class DemoScene extends React.Component {
   componentDidMount() {
     let { scene } = this.refs;
     this.setState({ scene });
+    //detect window resiez and perform resize function
+    window.addEventListener("resize", this.resize.bind(this));
   }
 
-  render() {
+  resize() {
+    //adjust render size
+    this.setState({width: window.innerWidth * 0.5});
+}
 
+  render() {
     return (
       <div>
         <React3
