@@ -1,3 +1,9 @@
+## Current Progress
+
+![product-image](product-image.png)
+
+##
+
 # **Several Things you need to do after you downloaded/pulled code from this repository**
 
 ## 1. Install node-modules folder
