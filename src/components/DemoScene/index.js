@@ -60,9 +60,11 @@ class DemoScene extends React.Component {
     if (window.innerWidth < 640) {
       //adjust render size
       this.setState({width: window.innerWidth * 0.7});
+      this.setState({height: 300});
     } else {
       //adjust render size
       this.setState({width: window.innerWidth - 350});
+      this.setState({height: 400});
     }
 }
 
