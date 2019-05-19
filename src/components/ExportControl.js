@@ -17,7 +17,7 @@ class ExportControl extends React.Component {
             saveAs(blob, "export.obj");
         }
         else {
-            // if file was loaded from disk initially, we would ider need to read the changed file from server
+            // if file was loaded from disk initially, we would either need to read the changed file from server
             // or read the base64 stream as above
             // this just shows that we can read the file name from disk
             var file = new File(['assets/' + this.props.app_states.chosen_phone_case + '.obj'], { autoBom: true });
