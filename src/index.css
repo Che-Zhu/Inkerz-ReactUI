@@ -51,16 +51,173 @@ body {
         "view3d"
         "edit-controls";
     }
+
+    .search-3d {
+        font-size: 12px;
+        background-size: 25px 25px;
+    }
+
+    .displayCaseButton {
+        max-height: 100px;
+        max-width: 66px;
+    }
+
+    .displayCaseImage {
+        max-height: 55px;
+        max-width: 40px;
+    }
+
+    .card {
+        height: 100px;
+        width: 66px;
+    }
+
+    .card-front, .card-back {
+        height: 100px;
+        width: 66px;
+     }
+
+     .card-back {
+        font-size: 10px;
+     }
+
+    .header {
+        display: flex;
+        background: black;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "logo nav-links menu-division";
+        grid-column: 1/3;
+        align-items: center;
+        grid-area: header;
+    }
+
+    .menu-division {
+        width: 100%;
+        float: right;
+        border-radius: 10px;
+        grid-area: menu-division;
+        vertical-align: center;
+    }
+
+    .nav-links {
+        width: 0px;
+        height: 0px;
+        visibility: hidden;
+    }
+
+    .menu-button {
+        width: 50px;
+        height: 50px;
+        float: right;
+        margin-right: 10px;
+        background-color: #BDC3C7;
+        background-size:  30px auto;
+        background-position: center center;
+        border: none;
+        border-radius: 10px;
+        transition: .5s ease;
+    }
+
+    .menu-button:hover {
+        background-color: rgb(146, 152, 156);
+    }
+
+    .menu-button:active {
+        background-color: rgb(107, 110, 112);
+    }
+    
+    .menu {
+        align-self: center;
+        background-color: #BDC3C7;
+        border-radius: 10px;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .menuItem {
+        width: 97%;
+        height: 30px;
+        border: none;
+        margin: 2px;
+        border-radius: 10px;
+        background-color: #BDC3C7;
+        font-size: 15px;
+        transition: .5s ease;
+    }
+
+    .menuItem:hover {
+        color: #008CBA;
+    }
+
+    .menuItem:active {
+        color: rgb(0, 102, 136)
+    }
+
+    .logoImage {
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+    }
+
+    .menuLogoImage {
+        height: 40px;
+        width: auto;
+    }
+
 }
 
-.header {
-    display: grid;
-    background: black;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "logo nav-links";
-    grid-column: 1/3;
-    align-items: center;
-    grid-area: header;
+/*Large screen control*/
+@media only screen and (min-width: 640px) {
+    .search-3d {
+        font-size: 15px;
+        background-size: 40px 40px;
+    }
+
+    .displayCaseButton {
+        max-height: 150px;
+        max-width: 100px;
+    }
+
+    .displayCaseImage {
+        max-height: 100px;
+        max-width: 80px;
+    }
+
+    .card {
+        height: 150px;
+        width: 100px;
+    }
+
+    .card-front, .card-back {
+        height: 150px;
+        width: 100px;
+    }
+
+    .card-back {
+        font-size: 20px;
+    }
+
+    .header {
+        display: grid;
+        background: black;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "logo nav-links";
+        grid-column: 1/3;
+        align-items: center;
+        grid-area: header;
+    }
+
+    .menu-division {
+        width: 0px;
+        height: 0px;
+        visibility: hidden;
+    }
+
+    .menuLogoImage {
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+    }
 }
 
 .logo {
@@ -214,14 +371,12 @@ body {
     width: 80%;
     border: #000000;
     background-color: #008CBA;
-    color: white;
+    color: #FFCF4B;
     height: 50px;
     padding-left: 5px;
     transition: .5s ease;
     vertical-align: top;
-    background-size: 40px 40px;
     background-position: center right;
-    font-size: 15px;
 }
 
 .engrave-3d {
@@ -316,7 +471,6 @@ body {
 }
 
 .displayCaseButton {
-    max-height: 150px;
     margin: 2px;
     padding-top: 0px;
     background-color: rgba(0, 0, 0,0);
@@ -342,7 +496,12 @@ body {
 .fileViewer {
     align-items: center;
     background-color: #BDC3C7;
+    background-size: 100% 100%;
+    background-position: cover cover;
+    background-blend-mode: darken;
     border-radius: 10px;
+    border-width: 5px;
+    border-color: #BDC3C7;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -370,7 +529,7 @@ body {
     outline: none;
     border-radius: 5px; 
 }
-  
+
 #caseSizeRange {
     -webkit-appearance: slider-vertical;
     width: 20px;
@@ -406,26 +565,18 @@ body {
 }
 
 .renderDescription {
-    background-color: #D6D5D5;
+    background-color: rgba(112, 112, 112, 0.9);
     height: 50px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     align-items: center;
     padding: 1px;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .whiteText {
     color: #eeeeee;
 }
-
-
-
-.displayCaseImage {
-    max-width: 80px;
-    max-height: 100px;
-}
-
-
 
 /*
 card view reference
@@ -439,8 +590,6 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   
   .card {
     position: relative;
-    width: 100px;
-    height: 150px;
     background: #f2f2f2;
     transform-style: preserve-3d;
     transition: .5s ease;
@@ -454,8 +603,6 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
     position: absolute;
     top: 0;
     left: 0;
-    width: 100px;
-    height: 150px;
     border-radius: 10px;
   }
   
@@ -473,7 +620,6 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   
   .card-back {
     display: flex;
-    font-size: 20px;
     text-shadow: 2px 2px 4px #000000;
     color: #f2f2f2;
     justify-content: center;
