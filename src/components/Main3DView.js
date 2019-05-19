@@ -47,7 +47,7 @@ class Main3DView extends React.Component {
                 </p>
                 <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={() => this.changeSize()} />
                 </div>
-                    <div className="fileViewer">
+                    <div className="fileViewer" style={{backgroundImage: "url(images/model-background.png)",backgroundRepeat: 'no-repeat'}}>
                         <DemoScene
                             // chosenCaseColor={this.state.caseColor}
                             chosenCaseColor={this.props.app_states.chosen_case_colour}
@@ -77,7 +77,6 @@ class Main3DView extends React.Component {
                 <input type="range" id="rotationYRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationY()}></input>
                 <p className="whiteText">ROTATE</p>
                 </div>
-                
             </div>
         );
     }
