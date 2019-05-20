@@ -12,16 +12,20 @@ class ExportControl extends React.Component {
         // if we had the file loaded from disk as base64 stream:
         // Not properly exporting,as this would require decode the file from base 64 stream 
         // back to obj file readable by 3D editing program, basically needs byte decoder
-        if (this.props.app_states.chosen_phone_case.indexOf("base64") > 0) {
+        if (this.props.chosen_phone_case.indexOf("base64") > 0) {
             var blob = new Blob([this.props.app_states.chosen_phone_case], { autoBom: true });
             saveAs(blob, "export.obj");
         }
-        else {
+        else if (this.props.chosen_3d_format === "OBJ") {
             // if file was loaded from disk initially, we would either need to read the changed file from server
             // or read the base64 stream as above
             // this just shows that we can read the file name from disk
-            var file = new File(['assets/' + this.props.app_states.chosen_phone_case + '.obj'], { autoBom: true });
+            var file = new File(['assets/' + this.props.chosen_phone_case + '.obj'], { autoBom: true });
             saveAs(file, "export.txt")
+        }
+        else {
+            // if the user selected format is not supported, alert!
+            alert("You have either not slected an export format\nor selected format is currently experimental\nand not supported!")
         }
     }
 
