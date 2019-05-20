@@ -56,8 +56,8 @@ class DemoScene extends React.Component {
 
   resize() {
     //adjust render size
-    this.setState({width: window.innerWidth * 0.5});
-}
+    this.setState({ width: window.innerWidth * 0.5 });
+  }
 
   render() {
     return (

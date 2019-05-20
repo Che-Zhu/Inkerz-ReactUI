@@ -79,7 +79,7 @@ class App extends Component {
                         export_3d_formats={this.state.available_export_3d_formats}
                         chosen_3d_format={this.state.chosen_export_3d_format}
                         on3DFormatSelect={this.update3DExportFormat}
-                        app_states={this.state}
+                        chosen_phone_case={this.state.chosen_phone_case}
                     />
                 </div>
                 <div className="view3d">
