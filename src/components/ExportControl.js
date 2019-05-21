@@ -8,21 +8,37 @@ import { saveAs } from 'file-saver';
 
 class ExportControl extends React.Component {
 
+    dataURItoObjectSaveFile(dataURI) {
+        /* convert the object data URI to blob (file object)
+            this is a file decoder, taking the URI (wuthout type preamble) and reading the 
+            string part of it to converty the String Buffer into byteString. 
+            It is then converted back to blob (object) and saved
+            ref: https://stackoverflow.com/questions/38263325/convert-url-to-file-object-with-javascript */
+        const byteString = atob(dataURI.split(',')[1]);
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ia], { autoBom: true });
+        const file = new File([blob], "export.obj");
+        saveAs(file);
+    }
+
     clickHandler() {
-        // if we had the file loaded from disk as base64 stream:
-        // Not properly exporting,as this would require decode the file from base 64 stream 
-        // back to obj file readable by 3D editing program, basically needs byte decoder
-        if (this.props.chosen_phone_case.indexOf("base64") > 0) {
-            var blob = new Blob([this.props.app_states.chosen_phone_case], { autoBom: true });
-            saveAs(blob, "export.obj");
-        }
-        else if (this.props.chosen_3d_format === "OBJ") {
-            // if file was loaded from disk initially, we would either need to read the changed file from server
-            // or read the base64 stream as above
-            // this just shows that we can read the file name from disk
-            var file = new File(['assets/' + this.props.chosen_phone_case + '.obj'], { autoBom: true });
-            saveAs(file, "export.txt")
-        }
+        // is user selected object (.obj) export file
+        if (this.props.chosen_3d_format === "OBJ")
+            // if file is a base64 stream (DataURI ecoded)
+            if (this.props.chosen_phone_case.indexOf("base64") > 0) {
+                //we convert it back to object (blob) and save
+                this.dataURItoObjectSaveFile(this.props.chosen_phone_case)
+            }
+            else {
+                /* if user did not upload the file, we have loaded it from server.
+                This is a security problem/browser restriction */
+                alert("Unable to export a local .obj file from server.\nPlease load the file from your disk!")
+
+            }
         else {
             // if the user selected format is not supported, alert!
             alert("You have either not slected an export format\nor selected format is currently experimental\nand not supported!")
