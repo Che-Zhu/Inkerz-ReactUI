@@ -78,7 +78,7 @@ body {
      }
 
      .card-back {
-        font-size: 10px;
+        font-size: 11px;
      }
 
     .header {
@@ -194,7 +194,7 @@ body {
     }
 
     .card-back {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .header {
@@ -471,7 +471,7 @@ body {
 }
 
 .displayCaseButton {
-    margin: 2px;
+    margin: 3px;
     padding-top: 0px;
     background-color: rgba(0, 0, 0,0);
     border: 0px solid #000000;
@@ -518,6 +518,7 @@ body {
     -webkit-appearance: slider-vertical;
     width: 20px;
     height: 300px;
+    margin-left: -3px;
 }
 
 #rotationYRange {
@@ -534,6 +535,13 @@ body {
     -webkit-appearance: slider-vertical;
     width: 20px;
     height: 300px;
+    margin-left: -3px;
+}
+
+.rangeDiv {
+    width: 12px;
+    background-color: rgba(112, 112, 112, 0.9);
+    border-radius: 10px;
 }
 
 .caseSize {
@@ -585,7 +593,7 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
 
 .cardBox {
     perspective: 500px;
-    margin: 0px;  
+    margin: 0px; 
   }
   
   .card {
@@ -604,6 +612,9 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
     top: 0;
     left: 0;
     border-radius: 10px;
+    border-style: double;
+    border-width: 5px;
+    border-color: black;
   }
   
   .card-back {
