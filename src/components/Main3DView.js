@@ -45,7 +45,9 @@ class Main3DView extends React.Component {
                     O<br />
                     M<br />
                 </p>
-                <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={() => this.changeSize()} />
+                <div className="rangeDiv">
+                     <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={() => this.changeSize()} />
+                </div>
                 </div>
                     <div className="fileViewer" style={{backgroundImage: "url(images/model-background.png)",backgroundRepeat: 'no-repeat'}}>
                         <DemoScene
@@ -60,7 +62,9 @@ class Main3DView extends React.Component {
                     </div>
 
                     <div className="rotationX">
-                    <input type="range" id="rotationXRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationX()} />
+                    <div className="rangeDiv">
+                        <input type="range" id="rotationXRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationX()} />
+                    </div>
                     <p className="whiteText">
                         R<br />
                         O<br />
