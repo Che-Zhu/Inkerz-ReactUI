@@ -51,13 +51,25 @@ class DemoScene extends React.Component {
     let { scene } = this.refs;
     this.setState({ scene });
     //detect window resiez and perform resize function
+
+    this.resize();
+
     window.addEventListener("resize", this.resize.bind(this));
   }
 
   resize() {
-    //adjust render size
-    this.setState({ width: window.innerWidth * 0.5 });
-  }
+
+    if (window.innerWidth < 640) {
+      //adjust render size
+      this.setState({width: window.innerWidth * 0.7});
+      this.setState({height: 300});
+    } else {
+      //adjust render size
+      this.setState({width: window.innerWidth - 350});
+      this.setState({height: 400});
+    }
+}
+
 
   render() {
     return (
@@ -157,7 +169,9 @@ class DemoScene extends React.Component {
             </group>
           </scene>
         </React3>
+        <div className="renderDescription">
         <p>{"Rendering " + this.objectLabelDisplayLogic() + " Model"}</p>
+        </div>
       </div>
     );
   }

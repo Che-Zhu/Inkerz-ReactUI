@@ -7,6 +7,7 @@ import Main3DView from './components/Main3DView'
 import TextEngraving from './components/TextEngraving'
 import CaseColourPicker from './components/CaseColourPicker'
 import CaseSelection from './components/CaseSelection'
+import SearchControl from './components/SearchControl'
 
 class App extends Component {
     /* Constructor */
@@ -16,6 +17,7 @@ class App extends Component {
         /* App state*/
         this.state = {
             chosen_engraved_text: '',
+            case_search_string: '',
             chosen_case_colour: '#44557E',
             chosen_phone_case: 'iPhone-X',
             chosen_export_3d_format: '',
@@ -32,6 +34,8 @@ class App extends Component {
         this.updateChosenCase = this.updateChosenCase.bind(this)
         this.updateChosen3DFileToLoad = this.updateChosen3DFileToLoad.bind(this)
         this.resetApp = this.resetApp.bind(this)
+        this.updateSearchString = this.updateSearchString.bind(this)
+        this.clearSearchString = this.clearSearchString.bind(this)
 
     }
     /* Updates chosen_export_3d_format App state property based on return
@@ -43,6 +47,7 @@ class App extends Component {
     resetApp() {
         this.setState({
             chosen_engraved_text: '',
+            case_search_string: '',
             chosen_case_colour: '#44557E',
             chosen_export_3d_format: '',
             chosen_phone_case: 'iPhone-X',
@@ -66,6 +71,14 @@ class App extends Component {
         this.setState({ chosen_3d_file_extension: fileExtension })
     }
 
+    updateSearchString(e) {
+        this.setState({ case_search_string: e.target.value})
+    }
+
+    clearSearchString(e) {
+        this.setState({ case_search_string: e})
+    }
+
     /* App JSX render section. Works together with index.css in
      producing a layout (based on grid css*/
     render() {
@@ -74,18 +87,28 @@ class App extends Component {
                 <Header />
                 <div className="top-controls">
                     <LoadControl on3DFileLoad={this.updateChosen3DFileToLoad} />
-                    <ResetControl onResetApp={this.resetApp} />
+                    
                     <ExportControl
                         export_3d_formats={this.state.available_export_3d_formats}
                         chosen_3d_format={this.state.chosen_export_3d_format}
                         on3DFormatSelect={this.update3DExportFormat}
                         chosen_phone_case={this.state.chosen_phone_case}
                     />
+                    
+                    <ResetControl onResetApp={this.resetApp} />
+
+                    <SearchControl 
+                    searched={this.state.case_search_string}
+                    onCaseSearch={this.updateSearchString}
+                    onClear={this.clearSearchString}/>
+                    
                 </div>
                 <div className="view3d">
                     <CaseSelection
                         onCaseSelect={this.updateChosenCase}
                         case_list={this.state.available_case_models}
+                        searched={this.state.case_search_string}
+                        onClear={this.clearSearchString}
                     />
                     <Main3DView app_states={this.state} />
                 </div>

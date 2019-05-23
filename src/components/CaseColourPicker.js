@@ -62,7 +62,7 @@ class CaseColourPicker extends React.Component {
 
         return (
             <div>
-                <p>Select Case Colour:</p>
+                <p className="whiteText">Select Case Colour:</p>
                 <div style={styles.swatch} onClick={this.handleClick}>
                     <div style={styles.color} />
                 </div>

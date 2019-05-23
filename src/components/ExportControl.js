@@ -48,14 +48,19 @@ class ExportControl extends React.Component {
     render() {
         return (
             <div className="export-control">
-                <select className="select-3d" onChange={this.props.on3DFormatSelect}>
+
+                <select className="select-3d" onChange={this.props.on3DFormatSelect} style={{backgroundImage: "url(images/select-arrow.png)",
+            backgroundRepeat: 'no-repeat'}}>
+
                     <option value="">Select Format</option>
                     {this.props.export_3d_formats.map((format) => (
                         <option key={format} value={format} >.{format}</option>
                     ))}
                 </select>
                 {/* function to export 3D model, call local function*/}
-                <button ref="download" className="button-3d" onClick={() => this.clickHandler()}>Export 3D Model</button>
+
+                <button ref="download" className="exportButton" onClick={() => this.clickHandler()}>Export 3D Model</button>
+
             </div>
         )
     }

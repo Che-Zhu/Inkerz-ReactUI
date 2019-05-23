@@ -36,17 +36,24 @@ class Main3DView extends React.Component {
 
         return (
             <div className="main3D">
+            <br></br>
                 <div className="fileViewerLine">
                 <div className="caseSize">
-                <p>
+
+                <p className="whiteText">
+
                     Z<br />
                     O<br />
                     O<br />
                     M<br />
                 </p>
-                <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={() => this.changeSize()} />
+
+                <div className="rangeDiv">
+                     <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={() => this.changeSize()} />
                 </div>
-                    <div className="fileViewer">
+                </div>
+                    <div className="fileViewer" style={{backgroundImage: "url(images/model-background.png)",backgroundRepeat: 'no-repeat'}}>
+
                         <DemoScene
                             // chosenCaseColor={this.state.caseColor}
                             chosenCaseColor={this.props.app_states.chosen_case_colour}
@@ -59,8 +66,12 @@ class Main3DView extends React.Component {
                     </div>
 
                     <div className="rotationX">
-                    <input type="range" id="rotationXRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationX()} />
-                    <p>
+
+                    <div className="rangeDiv">
+                        <input type="range" id="rotationXRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationX()} />
+                    </div>
+                    <p className="whiteText">
+
                         R<br />
                         O<br />
                         T<br />
@@ -74,9 +85,10 @@ class Main3DView extends React.Component {
 
                 <div className="rotationY">
                 <input type="range" id="rotationYRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationY()}></input>
-                <p>ROTATE</p>
+
+                <p className="whiteText">ROTATE</p>
                 </div>
-                
+
             </div>
         );
     }
