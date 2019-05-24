@@ -14,7 +14,7 @@ function TextEngraving(props) {
                     id="text-to-engrave"
                     className="engrave-3d"
                     onChange={props.onEngraveTextChange}
-                    value={props.engraved} placeholder="Text to Engrave"
+                    value={props.engraved} placeholder="Text to Engrave..."
                 />
             </div>
         </div>
