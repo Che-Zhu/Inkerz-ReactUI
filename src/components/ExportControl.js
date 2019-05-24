@@ -49,10 +49,12 @@ class ExportControl extends React.Component {
         return (
             <div className="export-control">
 
-                <select className="select-3d" onChange={this.props.on3DFormatSelect} style={{backgroundImage: "url(images/select-arrow.png)",
-            backgroundRepeat: 'no-repeat'}}>
+                <select className="select-3d" onChange={this.props.on3DFormatSelect} style={{
+                    backgroundImage: "url(images/select-arrow.png)",
+                    backgroundRepeat: 'no-repeat'
+                }}>
 
-                    <option value="">Select Format</option>
+                    <option value="">Export Format</option>
                     {this.props.export_3d_formats.map((format) => (
                         <option key={format} value={format} >.{format}</option>
                     ))}
