@@ -70,7 +70,7 @@ class CaseColourPicker extends React.Component {
                     <div style={styles.cover} onClick={this.handleClose} />
                     <ChromePicker
                         disableAlpha={true}
-                        width="190"
+                        width="190px"
                         onChange={this.handleChange}
                         color={this.props.updated_case_colour}
                         onChangeComplete={this.props.onCaseColourSelect}

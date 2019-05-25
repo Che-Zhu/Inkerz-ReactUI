@@ -1,3 +1,4 @@
+// other components import
 import React, { Component } from 'react';
 import Header from './components/Header'
 import LoadControl from './components/LoadControl'
@@ -21,9 +22,8 @@ class App extends Component {
             chosen_case_colour: '#44557E',
             chosen_phone_case: 'iPhone-X',
             chosen_export_3d_format: '',
-            chosen_3d_file_to_load: 'Something is wrong if this text displays',
             chosen_3d_file_extension: '',
-            available_export_3d_formats: ['STL', 'OBJ', 'AFM', '3FM'],
+            available_export_3d_formats: ['OBJ', 'GLB'],
             available_case_models: ['iPhone-X', 'iPhone-8-Plus', 'iPhone-7', 'iPad-9.7', 'Galaxy-S10', 'Galaxy-S5', 'Pixel2XL'],
         }
 
@@ -53,30 +53,36 @@ class App extends Component {
             chosen_phone_case: 'iPhone-X',
         })
     }
-
+    // updates engraved text state property, based on return event target value
     updateEngravingText(e) {
         this.setState({ chosen_engraved_text: e.target.value })
     }
-
+    // updates case colour state proiperty, based on return event target value
     updateCaseColour(color) {
         this.setState({ chosen_case_colour: color.hex })
     }
-
+    // updates chose case state property, based on return event target value
     updateChosenCase(e) {
         this.setState({ chosen_phone_case: e })
     }
-
-    updateChosen3DFileToLoad(file, fileExtension) {
+    // updates loaded 3D file file and extention state property, based on return event target value
+    updateChosen3DFileToLoad(file, fileExtension, color) {
         this.setState({ chosen_phone_case: file })
         this.setState({ chosen_3d_file_extension: fileExtension })
-    }
+        if (color === '#GGGGGG') {
 
+        }
+        else {
+            this.setState({ chosen_case_colour: color })
+        }
+    }
+    // updates case search string, based on return event target value
     updateSearchString(e) {
-        this.setState({ case_search_string: e.target.value})
+        this.setState({ case_search_string: e.target.value })
     }
-
+    // clears case search string, based on return event target value
     clearSearchString(e) {
-        this.setState({ case_search_string: e})
+        this.setState({ case_search_string: e })
     }
 
     /* App JSX render section. Works together with index.css in
@@ -87,21 +93,23 @@ class App extends Component {
                 <Header />
                 <div className="top-controls">
                     <LoadControl on3DFileLoad={this.updateChosen3DFileToLoad} />
-                    
+
                     <ExportControl
                         export_3d_formats={this.state.available_export_3d_formats}
                         chosen_3d_format={this.state.chosen_export_3d_format}
                         on3DFormatSelect={this.update3DExportFormat}
                         chosen_phone_case={this.state.chosen_phone_case}
+                        chosen_case_colour={this.state.chosen_case_colour}
+                    // app_states={this.state}
                     />
-                    
+
                     <ResetControl onResetApp={this.resetApp} />
 
-                    <SearchControl 
-                    searched={this.state.case_search_string}
-                    onCaseSearch={this.updateSearchString}
-                    onClear={this.clearSearchString}/>
-                    
+                    <SearchControl
+                        searched={this.state.case_search_string}
+                        onCaseSearch={this.updateSearchString}
+                        onClear={this.clearSearchString} />
+
                 </div>
                 <div className="view3d">
                     <CaseSelection

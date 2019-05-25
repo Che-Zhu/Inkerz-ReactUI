@@ -4,7 +4,9 @@
   "private": true,
   "homepage": "http://cheaww.github.io/Inkerz-ReactUI",
   "dependencies": {
+    "adm-zip": "^0.4.13",
     "file-saver": "^2.0.2",
+    "original-fs": "^1.0.0",
     "react": "^15.6.1",
     "react-color": "^2.17.3",
     "react-dom": "^15.6.1",
