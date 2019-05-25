@@ -208,7 +208,7 @@ class ExportControl extends React.Component {
     render() {
         return (
             <div className="export-control">
-                <select className="select-3d" onChange={this.props.on3DFormatSelect} style={{
+                <select className="select-3d" onChange={this.props.on3DFormatSelect} value={this.props.chosen_3d_format} style={{
                     backgroundImage: "url(images/select-arrow.png)",
                     backgroundRepeat: 'no-repeat'
                 }}>
