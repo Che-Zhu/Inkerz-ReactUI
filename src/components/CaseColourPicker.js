@@ -1,5 +1,6 @@
 /*This component embeds the colour wheen into the page (color-picker module). 
-onChangeComplete={props.onCaseColourSelect} updates the chosen_case_colour state*/
+onChangeComplete={props.onCaseColourSelect} updates the chosen_case_colour state
+back to App.js*/
 
 /* example take from https://casesandberg.github.io/react-color/ and modified*/
 
@@ -70,7 +71,7 @@ class CaseColourPicker extends React.Component {
                     <div style={styles.cover} onClick={this.handleClose} />
                     <ChromePicker
                         disableAlpha={true}
-                        width="190"
+                        width="190px"
                         onChange={this.handleChange}
                         color={this.props.updated_case_colour}
                         onChangeComplete={this.props.onCaseColourSelect}

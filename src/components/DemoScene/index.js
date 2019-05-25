@@ -1,5 +1,12 @@
-import * as THREE from "three";
+/* This component renders case 3D object
 
+It uses number of modules for Threejs to make it ewasier to
+integrate React and ThrreJS, namely react-three-renderer as
+for rendering and react-three-renderer-objects for object loading
+
+*/
+
+import * as THREE from "three";
 import React from "react";
 import React3 from "react-three-renderer";
 import ObjectModel from 'react-three-renderer-objects';
@@ -46,7 +53,8 @@ class DemoScene extends React.Component {
     }
   }
 
-
+  /* when component mounts (renders), we set thescene and track the 
+  window resize */
   componentDidMount() {
     let { scene } = this.refs;
     this.setState({ scene });
@@ -61,16 +69,16 @@ class DemoScene extends React.Component {
 
     if (window.innerWidth < 640) {
       //adjust render size
-      this.setState({width: window.innerWidth * 0.7});
-      this.setState({height: 300});
+      this.setState({ width: window.innerWidth * 0.7 });
+      this.setState({ height: 300 });
     } else {
       //adjust render size
-      this.setState({width: window.innerWidth - 350});
-      this.setState({height: 400});
+      this.setState({ width: window.innerWidth - 350 });
+      this.setState({ height: 400 });
     }
-}
+  }
 
-
+  // This is the react rendering the 3D object
   render() {
     return (
       <div>
@@ -86,7 +94,7 @@ class DemoScene extends React.Component {
             <perspectiveCamera
               key={`perspectiveCamera`}
               name="camera"
-              fov={parseInt(this.props.chosenCaseSize)}
+              fov={parseInt(this.props.chosenCaseSize, 10)}
               aspect={this.state.width / this.state.height}
               near={0.1}
               far={1000}
@@ -155,7 +163,7 @@ class DemoScene extends React.Component {
               />
             </group>
 
-            <group name="exampleGroup" rotation={new THREE.Euler(this.props.chosenRotationX, this.props.chosenRotationY, 0)}
+            <group name="objGroup" rotation={new THREE.Euler(this.props.chosenRotationX, this.props.chosenRotationY, 0)}
               //change key when model changes so that it gets re-rendered
               key={this.props.chosenPhoneCase}>
               <ObjectModel
@@ -163,14 +171,14 @@ class DemoScene extends React.Component {
                 //this is the model we are rendering
                 model={this.objectLoadLogic()}
                 scene={this.state.scene}
-                group="exampleGroup"
+                group="objGroup"
               />
               {/* {console.log("model is:", this.objectLoadLogic())} */}
             </group>
           </scene>
         </React3>
         <div className="renderDescription">
-        <p>{"Rendering " + this.objectLabelDisplayLogic() + " Model"}</p>
+          <p>{"Rendering " + this.objectLabelDisplayLogic() + " Model"}</p>
         </div>
       </div>
     );
