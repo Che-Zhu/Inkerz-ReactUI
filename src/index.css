@@ -51,37 +51,37 @@ body {
       "edit-controls"
       "view3d";
   }
-
-  .search-3d {
+  /* Search box */
+  .search-3d { 
     font-size: 12px;
     background-size: 25px 25px;
   }
-
+  /* Button for case displaying */
   .displayCaseButton {
     max-height: 100px;
     max-width: 66px;
   }
-
+  /* Preview image of the display case */
   .displayCaseImage {
     max-height: 55px;
     max-width: 40px;
   }
-
+  /* Flip case display card */
   .card {
     height: 100px;
     width: 66px;
   }
-
+  /* Front face of the card */
   .card-front,
   .card-back {
     height: 100px;
     width: 66px;
   }
-
+  /* The back of the card when being pointed at by the mouse */
   .card-back {
     font-size: 11px;
   }
-
+  /* Webpage header */
   .header {
     display: flex;
     background: black;
@@ -91,7 +91,7 @@ body {
     align-items: center;
     grid-area: header;
   }
-
+  /* Division elements of options menu */
   .menu-division {
     width: 100%;
     float: right;
@@ -99,13 +99,13 @@ body {
     grid-area: menu-division;
     vertical-align: center;
   }
-
+  /* Navigation link apperance */
   .nav-links {
     width: 0px;
     height: 0px;
     visibility: hidden;
   }
-
+  /* Options apperance on the main menu */
   .menu-button {
     width: 40px;
     height: 40px;
@@ -118,15 +118,15 @@ body {
     border-radius: 10px;
     transition: 0.5s ease;
   }
-
+  /* This function is to change the coler of button when the mouse is hover above the button */
   .menu-button:hover {
     background-color: rgb(146, 152, 156);
   }
-
+  /* Color changes when the button is clicked */
   .menu-button:active {
     background-color: rgb(107, 110, 112);
   }
-
+  /* Menu color and design */
   .menu {
     align-self: center;
     background-color: #bdc3c7;
@@ -134,7 +134,7 @@ body {
     align-items: center;
     margin: 10px;
   }
-
+  /* Design of the items appear on the main menu */
   .menuItem {
     width: 97%;
     height: 30px;
@@ -145,21 +145,21 @@ body {
     font-size: 12px;
     transition: 0.5s ease;
   }
-
+  /* The items on the main menu get color changed when the pointer is hover above it */
   .menuItem:hover {
     color: #008cba;
   }
-
+  /* The items on the main menu get color changed when the pointer click on it */
   .menuItem:active {
     color: rgb(0, 102, 136);
   }
-
+  /* Inkerz logo apperance */
   .logoImage {
     visibility: hidden;
     width: 0px;
     height: 0px;
   }
-
+  /* Menu logo apperance */
   .menuLogoImage {
     height: 40px;
     width: auto;
@@ -167,37 +167,39 @@ body {
 }
 
 /*Large screen control*/
+/* The components in here are similar to the small screen GRID control sections */
 @media only screen and (min-width: 640px) {
+  /* Search box */
   .search-3d {
     font-size: 12px;
     background-size: 40px 40px;
   }
-
+  /* Button for case displaying */
   .displayCaseButton {
     max-height: 150px;
     max-width: 100px;
   }
-
+  /* Preview image of the display case */
   .displayCaseImage {
     max-height: 100px;
     max-width: 80px;
   }
-
+  /* Flip case display card */
   .card {
     height: 150px;
     width: 100px;
   }
-
+  /* Front face of the card */
   .card-front,
   .card-back {
     height: 150px;
     width: 100px;
   }
-
+  * The back of the card when being pointed at by the mouse */
   .card-back {
     font-size: 18px;
   }
-
+  /* Webpage header */
   .header {
     display: grid;
     background: black;
@@ -207,7 +209,7 @@ body {
     align-items: center;
     grid-area: header;
   }
-
+  /* Division elements of options menu */
   .menu-division {
     width: 0px;
     height: 0px;
@@ -220,16 +222,16 @@ body {
     height: 0px;
   }
 }
-
+/* Inkerz logo stay the same */
 .logo {
   grid-area: logo;
 }
-
+/* Navigation link apperance */
 .nav-links {
   grid-area: nav-links;
   justify-self: end;
 }
-
+/* Navigation link effect when being active */
 .nav-links a {
   float: left;
   display: block;
@@ -239,7 +241,7 @@ body {
   text-decoration: none;
   font-size: 12px;
 }
-
+/* Navigation link effect when being hovered by pointer */
 .nav-links a:hover {
   float: left;
   display: block;
@@ -250,7 +252,7 @@ body {
   font-size: 14px;
   transition: 0.2s ease;
 }
-
+/* Top control pannel appearance */
 .top-controls {
   display: flex;
   background: rgb(166, 202, 216);
@@ -258,35 +260,35 @@ body {
   background-color: #404040;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+/* Load 3D Model button of the top control pannel */
 .load-control {
   grid-area: load-control;
   justify-self: start;
   width: 15%;
 }
-
+/* Export 3D Model button of the top control pannel */
 .export-control {
   grid-area: export-control;
   width: 40%;
 }
-
+/* Reset button of the top control pannel */
 .reset-control {
   grid-area: reset-control;
   justify-self: center;
   width: 15%;
 }
-
+/* Reset button of the top control pannel */
 .search-control {
   grid-area: search-control;
   justify-self: end;
   width: 30%;
 }
-
+/* 3D model display section */
 .view3d {
   grid-column: 1/3;
   grid-area: view3d;
 }
-
+/* 3D Model Edit section */
 .edit-controls {
   background: rgb(204, 225, 233);
   grid-area: edit-controls;
@@ -295,7 +297,7 @@ body {
 }
 
 /* this is button and card styling  section */
-
+/* Load 3D Model of specific phone case model */
 .loadButton {
   background-color: #008cba;
   margin: 0;
@@ -306,7 +308,7 @@ body {
   transition: 0.5s ease;
   vertical-align: top;
 }
-
+/* Export 3D Model button styling */
 .exportButton {
   background-color: #176079;
   margin: 0;
@@ -318,7 +320,7 @@ body {
   transition: 0.5s ease;
   vertical-align: top;
 }
-
+/* Reset button styling */
 .resetButton {
   background-color: #0a4861;
   margin: 0;
@@ -329,7 +331,7 @@ body {
   transition: 0.5s ease;
   vertical-align: top;
 }
-
+/* Visual effect of hovering pointer on the top control pannel button  */
 .loadButton:hover,
 .exportButton:hover,
 .resetButton:hover,
@@ -338,14 +340,14 @@ body {
   color: #eeeeee;
   border-color: #008cba;
 }
-
+/* Visual effect of clicking on top control pannel button  */
 .loadButton:active,
 .exportButton:active,
 .resetButton:active {
   background-color: #008cba;
   color: #eeeeee;
 }
-
+/* Clear button styling */
 .clearButton {
   margin-left: 0px;
   background-color: #e74c3c;
@@ -359,17 +361,17 @@ body {
   transition: 0.5s ease;
   vertical-align: top;
 }
-
+/* Visual effect of hovering pointer on the Clear button */
 .clearButton:hover {
   background-color: #c0392b;
   color: #eeeeee;
 }
-
+/* Visual effect of clicking pointer on the Clear button */
 .clearButton:active {
   background-color: #e74c3c;
   color: #eeeeee;
 }
-
+/* 3D model search box styling */
 .search-3d {
   margin-right: 0px;
   width: 80%;
@@ -382,11 +384,11 @@ body {
   vertical-align: top;
   background-position: center right;
 }
-
+/* Position of the magnifying glass symbol */
 .search-3d::placeholder {
   color: rgb(49, 43, 43);
 }
-
+/* 3D model engrave box styling */
 .engrave-3d {
   margin-right: 0px;
   width: 90%;
@@ -399,16 +401,16 @@ body {
   margin: 5px;
   transition: 0.5s ease;
 }
-
+/* Position of the engrave box on the page */
 .engrave-3d::placeholder {
   color: rgb(41, 36, 36);
 }
-
+/* Select and style the 3D Model Search field when it gets focus */
 .search-3d:focus {
   outline: none;
   background-color: rgb(10, 102, 136);
 }
-
+/* Select and style the Engrave field when it gets focus */
 .engrave-3d:focus {
   outline: none;
   background-color: rgb(10, 102, 136);
@@ -428,7 +430,7 @@ body {
   border-width: 2px;
   border-radius: 10px;
 }
-
+/* Select and style the 3D button when you mouse over it */
 .button-3d:hover {
   background-color: white;
   color: #008cba;
@@ -455,12 +457,12 @@ body {
   background-size: 10px 10px;
   background-position: center right;
 }
-
+/* Select and style the active of 3D button */
 .select-3d:active {
   position: relative;
   top: 1px;
 }
-
+/* Phone make button styling */
 .button-phone-make {
   border: 1px outset rgb(0, 0, 0);
   background-color: rgb(229, 239, 243);
@@ -471,7 +473,7 @@ body {
   background-repeat: no-repeat;
   outline: none;
 }
-
+/* Color of phone cases button styling */
 .button-phone-case-colour {
   border: 1px outset rgb(0, 0, 0);
   margin: 1px;
@@ -481,7 +483,7 @@ body {
   background-repeat: no-repeat;
   outline: none;
 }
-
+/* Phone ccase display button styling */
 .displayCaseButton {
   margin: 3px;
   padding-top: 0px;
@@ -494,17 +496,17 @@ body {
   background-position: top;
   outline: none;
 }
-
+/* Select and style the active of Display Case button */
 .displayCaseButton :active {
   background: #1b1b1b;
   border-radius: 10px;
   transition: 0.5s ease;
 }
-
+/*Position of the main 3D model display section */
 .main3D {
   align-items: center;
 }
-
+/* File Viewer box styling */
 .fileViewer {
   align-items: center;
   background-color: #bdc3c7;
@@ -525,14 +527,14 @@ body {
   width: 100%;
   text-align: center;
 }
-
+/* Horizontal rotation control of 3D model */
 #rotationXRange {
   -webkit-appearance: slider-vertical;
   width: 20px;
   height: 300px;
   margin-left: -3px;
 }
-
+/* Vertical rotation control of 3D model */
 #rotationYRange {
   width: 80%;
   height: 10px;
@@ -542,21 +544,21 @@ body {
   outline: none;
   border-radius: 5px;
 }
-
+/* Zoom bar of the 3D model */
 #caseSizeRange {
   -webkit-appearance: slider-vertical;
   width: 20px;
   height: 300px;
   margin-left: -3px;
 }
-
+/* 3D model Range devision */
 .rangeDiv {
   width: 12px;
   background-color: rgba(112, 112, 112, 0.9);
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+/* Default case size of the viewer */
 .caseSize {
   display: flex;
   align-items: center;
@@ -566,7 +568,7 @@ body {
   text-align: center;
   padding-left: 10px;
 }
-
+/* Horizontal rotation control of 3D model styling */
 .rotationX {
   display: flex;
   align-items: center;
@@ -576,7 +578,7 @@ body {
   text-align: center;
   padding-right: 10px;
 }
-
+/* Vertical rotation control of 3D model styling */
 .rotationY {
   justify-content: space-between;
   height: 80px;
@@ -584,7 +586,7 @@ body {
   text-align: center;
   padding-top: 10px;
 }
-
+/* Display name of the currnt viewing model */
 .renderDescription {
   background-color: rgba(112, 112, 112, 0.9);
   height: 50px;
@@ -608,7 +610,7 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   perspective: 500px;
   margin: 0px;
 }
-
+/* Flip case display card */
 .card {
   position: relative;
   background: #f2f2f2;
@@ -618,7 +620,7 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   backface-visibility: hidden;
   border-radius: 10px;
 }
-
+/* Front face of the card */
 .card-front,
 .card-back {
   position: absolute;
@@ -629,11 +631,11 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   border-width: 5px;
   border-color: black;
 }
-
+/* The back of the card when being pointed at by the mouse */
 .card-back {
   backface-visibility: hidden;
 }
-
+/* Front face of the card styling */
 .card-front {
   display: flex;
   font-size: 20px;
@@ -641,7 +643,7 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   background: #909090;
   align-items: center;
 }
-
+/* The back of the card when being pointed at by the mouse styling */ 
 .card-back {
   display: flex;
   text-shadow: 2px 2px 4px #000000;
@@ -652,11 +654,11 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   background: rgba(207, 207, 207, 0.3);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+/* Card rotating direction when being hovered by the mouse*/
 .cardBox:hover .card {
   transform: rotateY(180deg);
 }
-
+/* Card rotating direction when stop being hovered by the mouse*/
 .card-back {
   transform: rotateY(180deg);
 }
