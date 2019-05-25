@@ -94,7 +94,7 @@ class DemoScene extends React.Component {
             <perspectiveCamera
               key={`perspectiveCamera`}
               name="camera"
-              fov={parseInt(this.props.chosenCaseSize)}
+              fov={parseInt(this.props.chosenCaseSize, 10)}
               aspect={this.state.width / this.state.height}
               near={0.1}
               far={1000}
