@@ -1,5 +1,6 @@
 /*This component embeds the colour wheen into the page (color-picker module). 
-onChangeComplete={props.onCaseColourSelect} updates the chosen_case_colour state*/
+onChangeComplete={props.onCaseColourSelect} updates the chosen_case_colour state
+back to App.js*/
 
 /* example take from https://casesandberg.github.io/react-color/ and modified*/
 

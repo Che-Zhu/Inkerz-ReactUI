@@ -1,5 +1,12 @@
-import * as THREE from "three";
+/* This component renders case 3D object
 
+It uses number of modules for Threejs to make it ewasier to
+integrate React and ThrreJS, namely react-three-renderer as
+for rendering and react-three-renderer-objects for object loading
+
+*/
+
+import * as THREE from "three";
 import React from "react";
 import React3 from "react-three-renderer";
 import ObjectModel from 'react-three-renderer-objects';
@@ -46,7 +53,8 @@ class DemoScene extends React.Component {
     }
   }
 
-
+  /* when component mounts (renders), we set thescene and track the 
+  window resize */
   componentDidMount() {
     let { scene } = this.refs;
     this.setState({ scene });
@@ -70,7 +78,7 @@ class DemoScene extends React.Component {
     }
   }
 
-
+  // This is the react rendering the 3D object
   render() {
     return (
       <div>
