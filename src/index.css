@@ -299,7 +299,7 @@ body {
 /* this is button and card styling  section */
 /* Load 3D Model of specific phone case model */
 .loadButton {
-  background-color: #008cba;
+  background-color: #0077C0;
   margin: 0;
   color: white;
   width: 99%;
@@ -308,9 +308,20 @@ body {
   transition: 0.5s ease;
   vertical-align: top;
 }
+/* Visual effect of hovering pointer on the top load button  */
+.loadButton:hover {
+  background-color: #0067B0;
+  color: #eeeeee;
+  border-color: #008cba;
+}
+/* Visual effect of clicking on load button  */
+.loadButton:active {
+  background-color: #0057A0;
+  color: #eeeeee;
+}
 /* Export 3D Model button styling */
 .exportButton {
-  background-color: #176079;
+  background-color: #9E6C4B;
   margin: 0;
   color: white;
   width: 50%;
@@ -320,9 +331,19 @@ body {
   transition: 0.5s ease;
   vertical-align: top;
 }
+/* Export 3D Model button hover styling */
+.exportButton:hover {
+  background-color: #8E5C3B;
+
+}
+/* Export 3D Model button click styling */
+.exportButton:active {
+  background-color: #7E4C2B;
+}
+
 /* Reset button styling */
 .resetButton {
-  background-color: #0a4861;
+  background-color: #007B70;
   margin: 0;
   color: white;
   width: 99%;
@@ -331,26 +352,19 @@ body {
   transition: 0.5s ease;
   vertical-align: top;
 }
-/* Visual effect of hovering pointer on the top control pannel button  */
-.loadButton:hover,
-.exportButton:hover,
-.resetButton:hover,
-.select-3d:hover {
-  background-color: rgb(0, 102, 136);
-  color: #eeeeee;
-  border-color: #008cba;
+/* Reset button hover styling */
+.resetButton:hover {
+  background-color: #106B60;
 }
-/* Visual effect of clicking on top control pannel button  */
-.loadButton:active,
-.exportButton:active,
+/* Reset button click style */
 .resetButton:active {
-  background-color: #008cba;
-  color: #eeeeee;
+  background-color: #005B50;
 }
+
 /* Clear button styling */
 .clearButton {
   margin-left: 0px;
-  background-color: #e74c3c;
+  background-color: #D73C2C;
   float: right;
   margin: 0;
   color: eeeeee;
@@ -363,12 +377,12 @@ body {
 }
 /* Visual effect of hovering pointer on the Clear button */
 .clearButton:hover {
-  background-color: #c0392b;
+  background-color: #C72C1C;
   color: #eeeeee;
 }
 /* Visual effect of clicking pointer on the Clear button */
 .clearButton:active {
-  background-color: #e74c3c;
+  background-color: #B71C0C;
   color: #eeeeee;
 }
 /* 3D model search box styling */
@@ -376,7 +390,7 @@ body {
   margin-right: 0px;
   width: 80%;
   border: #000000;
-  background-color: #008cba;
+  background-color: #0077C0;
   color: #ffcf4b;
   height: 50px;
   padding-left: 5px;
@@ -405,10 +419,15 @@ body {
 .engrave-3d::placeholder {
   color: rgb(41, 36, 36);
 }
+/* Select and style the 3D Model Search field when it gets hovered */
+.search-3d:hover {
+  outline: none;
+  background-color: #0067B0;
+}
 /* Select and style the 3D Model Search field when it gets focus */
 .search-3d:focus {
   outline: none;
-  background-color: rgb(10, 102, 136);
+  background-color: #0057A0;
 }
 /* Select and style the Engrave field when it gets focus */
 .engrave-3d:focus {
@@ -437,7 +456,7 @@ body {
 }
 
 .select-3d {
-  background-color: #176079;
+  background-color: #9E6C4B;
   margin: 0;
   color: white;
   width: 49%;
@@ -459,9 +478,15 @@ body {
 }
 /* Select and style the active of 3D button */
 .select-3d:active {
+  background-color: #8E5C3B;
   position: relative;
   top: 1px;
 }
+
+.select-3d:hover {
+  background-color: #7E4C2B;
+}
+
 /* Phone make button styling */
 .button-phone-make {
   border: 1px outset rgb(0, 0, 0);
@@ -662,3 +687,10 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
 .card-back {
   transform: rotateY(180deg);
 }
+
+
+
+/*
+most color choices retrived from:
+http://www.flatcolorsui.com
+*/
