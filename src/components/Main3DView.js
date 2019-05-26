@@ -4,40 +4,26 @@ and zooming 3D object controls.
 It paseses the required states from App.js to DemoScene.js (component)
 to render the 3D object
 
-It passes own control states as well
-
 */
 
 import React from 'react';
 import DemoScene from './DemoScene';
 
 class Main3DView extends React.Component {
-    constructor(props) {
-        super(props)
-
-        /* App state*/
-        this.state = {
-            // caseColor: this.props.app_states.chosen_case_colour,
-            caseSize: 20,
-            rotationX: 0,
-            rotationY: 0,
-            // PhoneCase: "iPhone X",
-        }
-    }
 
     changeSize() {
         let value = document.getElementById("caseSizeRange").value
-        this.setState({ caseSize: value })
+        this.props.onZoomChange(value)
     }
 
     changeRotationX() {
         let value = document.getElementById("rotationXRange").value
-        this.setState({ rotationX: value })
+        this.props.onRotationXChange(value)
     }
 
     changeRotationY() {
         let value = document.getElementById("rotationYRange").value
-        this.setState({ rotationY: value })
+        this.props.onRotationYChange(value)
     }
 
     render() {
@@ -56,16 +42,16 @@ class Main3DView extends React.Component {
                         </p>
 
                         <div className="rangeDiv">
-                            <input type="range" id="caseSizeRange" min="1" max="50" step="1" defaultValue="20" onChange={() => this.changeSize()} />
+                            <input type="range" id="caseSizeRange" min="1" max="50" step="1" value={this.props.app_states.displayed_3d_model_zoom_level} onChange={() => this.changeSize()} />
                         </div>
                     </div>
                     <div className="fileViewer" style={{ backgroundImage: "url(images/model-background.png)", backgroundRepeat: 'no-repeat' }}>
 
                         <DemoScene
                             chosenCaseColor={this.props.app_states.chosen_case_colour}
-                            chosenCaseSize={this.state.caseSize}
-                            chosenRotationX={this.state.rotationX}
-                            chosenRotationY={this.state.rotationY}
+                            chosenCaseSize={this.props.app_states.displayed_3d_model_zoom_level}
+                            chosenRotationX={this.props.app_states.displayed_3d_model_rotation_x}
+                            chosenRotationY={this.props.app_states.displayed_3d_model_rotation_y}
                             chosenPhoneCase={this.props.app_states.chosen_phone_case}
                         />
                     </div>
@@ -73,7 +59,7 @@ class Main3DView extends React.Component {
                     <div className="rotationX">
 
                         <div className="rangeDiv">
-                            <input type="range" id="rotationXRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationX()} />
+                            <input type="range" id="rotationXRange" min="-3" max="3" step="0.1" value={this.props.app_states.displayed_3d_model_rotation_x} onChange={() => this.changeRotationX()} />
                         </div>
                         <p className="whiteText">
 
@@ -89,7 +75,7 @@ class Main3DView extends React.Component {
                 </div>
 
                 <div className="rotationY">
-                    <input type="range" id="rotationYRange" min="-3" max="3" step="0.1" defaultValue="0" onChange={() => this.changeRotationY()}></input>
+                    <input type="range" id="rotationYRange" min="-3" max="3" step="0.1" value={this.props.app_states.displayed_3d_model_rotation_y} onChange={() => this.changeRotationY()}></input>
 
                     <p className="whiteText">ROTATE</p>
                 </div>

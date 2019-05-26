@@ -23,6 +23,9 @@ class App extends Component {
             chosen_phone_case: 'iPhone-X',
             chosen_export_3d_format: '',
             chosen_3d_file_extension: '',
+            displayed_3d_model_rotation_x: 0,
+            displayed_3d_model_rotation_y: 0,
+            displayed_3d_model_zoom_level: 20,
             available_export_3d_formats: ['OBJ', 'GLB'],
             available_case_models: ['iPhone-X', 'iPhone-8-Plus', 'iPhone-7', 'iPad-9.7', 'Galaxy-S10', 'Galaxy-S5', 'Pixel2XL'],
         }
@@ -36,6 +39,9 @@ class App extends Component {
         this.resetApp = this.resetApp.bind(this)
         this.updateSearchString = this.updateSearchString.bind(this)
         this.clearSearchString = this.clearSearchString.bind(this)
+        this.updateDisplayed3DModelRotationX = this.updateDisplayed3DModelRotationX.bind(this)
+        this.updateDisplayed3DModelRotationY = this.updateDisplayed3DModelRotationY.bind(this)
+        this.updateDisplayed3DModelZoom = this.updateDisplayed3DModelZoom.bind(this)
 
     }
     /* Updates chosen_export_3d_format App state property based on return
@@ -51,6 +57,9 @@ class App extends Component {
             chosen_case_colour: '#44557E',
             chosen_export_3d_format: '',
             chosen_phone_case: 'iPhone-X',
+            displayed_3d_model_rotation_x: 0,
+            displayed_3d_model_rotation_y: 0,
+            displayed_3d_model_zoom_level: 20,
         })
     }
     // updates engraved text state property, based on return event target value
@@ -83,6 +92,24 @@ class App extends Component {
     // clears case search string, based on return event target value
     clearSearchString(e) {
         this.setState({ case_search_string: e })
+    }
+    // updates 3D model rotationX values
+    updateDisplayed3DModelRotationX(value) {
+        this.setState({
+            displayed_3d_model_rotation_x: value
+        })
+    }
+    // updates 3D model rotationY values
+    updateDisplayed3DModelRotationY(value) {
+        this.setState({
+            displayed_3d_model_rotation_y: value
+        })
+    }
+    // updates 3D model Zoom values
+    updateDisplayed3DModelZoom(value) {
+        this.setState({
+            displayed_3d_model_zoom_level: value
+        })
     }
 
     /* App JSX render section. Works together with index.css in
@@ -120,7 +147,12 @@ class App extends Component {
                         searched={this.state.case_search_string}
                         onClear={this.clearSearchString}
                     />
-                    <Main3DView app_states={this.state} />
+
+                    <Main3DView
+                        app_states={this.state}
+                        onRotationXChange={this.updateDisplayed3DModelRotationX}
+                        onRotationYChange={this.updateDisplayed3DModelRotationY}
+                        onZoomChange={this.updateDisplayed3DModelZoom} />
                 </div>
                 <div className="edit-controls">
                     <TextEngraving
