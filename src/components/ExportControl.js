@@ -186,8 +186,9 @@ class ExportControl extends React.Component {
             else {
                 // otherwise, as not having the ascii version of object file means we have just loded the obj file from
                 // server, we need to fetch said server data (in our case our own url, where the assets are)
-                let url = window.location.protocol + '//' + window.location.host + '/assets/' + this.props.chosen_phone_case + ".obj"
-                // console.log("url is", url)
+                let url = window.location.protocol + '//' + window.location.host + window.location.pathname + '/assets/' + this.props.chosen_phone_case + ".obj"
+                //console.log("url is", url)
+                //console.log("pathname", window.location.pathname)
                 // fetch is used 
                 fetch(url)
                     .then(function (response) {
