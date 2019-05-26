@@ -1,6 +1,10 @@
 {
-  "main.css": "static/css/main.1c6d55fe.css",
-  "main.css.map": "static/css/main.1c6d55fe.css.map",
-  "main.js": "static/js/main.7865bd53.js",
-  "main.js.map": "static/js/main.7865bd53.js.map"
+  "main.css": "/Inkerz-ReactUI/static/css/main.b86071ae.chunk.css",
+  "main.js": "/Inkerz-ReactUI/static/js/main.ed2952ab.chunk.js",
+  "main.js.map": "/Inkerz-ReactUI/static/js/main.ed2952ab.chunk.js.map",
+  "static/js/1.f267f509.chunk.js": "/Inkerz-ReactUI/static/js/1.f267f509.chunk.js",
+  "static/js/1.f267f509.chunk.js.map": "/Inkerz-ReactUI/static/js/1.f267f509.chunk.js.map",
+  "runtime~main.js": "/Inkerz-ReactUI/static/js/runtime~main.1685de4e.js",
+  "runtime~main.js.map": "/Inkerz-ReactUI/static/js/runtime~main.1685de4e.js.map",
+  "index.html": "/Inkerz-ReactUI/index.html"
 }
