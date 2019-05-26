@@ -88,6 +88,8 @@ class LoadControl extends Component {
         //this
         if (this.step >= 2) {
             this.props.on3DFileLoad(this.file, this.fileExtension, this.color) //load file upstream to App.js 
+        } else {
+            this.props.on3DFileLoad(this.file, this.fileExtension, this.props.app_states.chosen_case_colour) //load file upstream to App.js 
         }
     }
 
@@ -98,7 +100,6 @@ class LoadControl extends Component {
     on_mtl_load = e => {
 
         var mtl_string = this.mtl_reader.result
-
 
         //var this_pointer = this
 
@@ -133,29 +134,47 @@ class LoadControl extends Component {
         if (this.step >= 2) {
             this.props.on3DFileLoad(this.file, this.fileExtension, this.color) //load file upstream to App.js 
         }
-
     }
+    
     // function to handle files when user loads the files
     handleFiles = files => {
+        this.step = 0
+        this.file = ''
+        this.fileExtension = ''
+        this.color = ''
+
+        var mtl_ready = false
+        var obj_ready = false
+        var obj_order = -1
+        var mtl_order = -1
 
         // currently we expect both .mtl and .obj files
         if (files.length < 2) {
-            alert("Unable to load!\nPlease select both .obj and .mtl files to load!\n")
+            //var color = '#'
+            // each file is parswed to identifyy extention and make them marked as ready
+            for (let i = 0; i < files.length; i++) {
+                // console.log(files[i].name)
+                // console.log(files[i].name.split('.').pop() === 'mtl' && !mtl_ready)
+                // console.log(files[i].name.split('.').pop() === 'obj' && !obj_ready)
+                if (files[i].name.split('.').pop() === 'obj' && !obj_ready) {
+                    // console.log('obj: ' + files[i].name)
+                    //console.log(files[i].base64[i]) /* remove just for logging */
+                    obj_order = i;
+                    obj_ready = true;
+                    alert(".mtl file has not been loaded, using default material")
+                    continue
+                } else {
+                    alert("Unsupported file detected")
+                }
+            }
 
+            this.obj_reader = new FileReader();
+            this.obj_reader.onloadend = this.on_obj_load
+            this.obj_reader.readAsText(files[obj_order])
         }
         // if both supplied, process both files (encoding obj file into stream base 64 
         // and extract material reference and colour from mtl file)
         else {
-
-            this.step = 0
-            this.file = ''
-            this.fileExtension = ''
-            this.color = ''
-
-            var mtl_ready = false
-            var obj_ready = false
-            var obj_order = -1
-            var mtl_order = -1
             //var color = '#'
             // each file is parswed to identifyy extention and make them marked as ready
             for (let i = 0; i < files.length; i++) {
@@ -173,7 +192,6 @@ class LoadControl extends Component {
                     // console.log('mtl: ' + files[i].name)
                     mtl_order = i;
                     mtl_ready = true;
-
                 }
             }
             // once both files are reqady, they are read in
@@ -189,7 +207,6 @@ class LoadControl extends Component {
             this.obj_reader.onloadend = this.on_obj_load
             this.mtl_reader.readAsText(files[mtl_order])
             this.obj_reader.readAsText(files[obj_order])
-
         }
     }
 

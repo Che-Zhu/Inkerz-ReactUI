@@ -92,7 +92,9 @@ class App extends Component {
             <div className="app" >
                 <Header />
                 <div className="top-controls">
-                    <LoadControl on3DFileLoad={this.updateChosen3DFileToLoad} />
+                    <LoadControl on3DFileLoad={this.updateChosen3DFileToLoad}
+                        app_states={this.state}
+                    />
 
                     <ExportControl
                         export_3d_formats={this.state.available_export_3d_formats}
