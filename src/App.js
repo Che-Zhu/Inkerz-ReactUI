@@ -47,7 +47,7 @@ class App extends Component {
     /* Updates chosen_export_3d_format App state property based on return
      event target value*/
     update3DExportFormat(e) {
-        this.setState({ chosen_export_3d_format: e.target.value })
+        this.setState({ chosen_export_3d_format: e})
     }
     /* Resets App to chosen default values (empty) */
     resetApp() {
