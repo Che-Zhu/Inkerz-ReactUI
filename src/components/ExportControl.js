@@ -9,10 +9,32 @@ import FileSaver from 'file-saver'
 
 
 class ExportControl extends React.Component {
-    //constructor(props) {
-    //    super(props)
-    //}
+    constructor() {
+        super();
+    
+        this.state = {
+          showMenu: false,
+          fotmatTitle: "Export Format"
+        };
+    
+        this.showMenu = this.showMenu.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
+    }
 
+    showMenu(event) {
+        event.preventDefault();
+        this.setState({ showMenu: true }, () => {
+          document.addEventListener('click', this.closeMenu);
+        });
+      }
+    
+      closeMenu(event) {
+        if (!this.dropdownMenu.contains(event.target)) {
+          this.setState({ showMenu: false }, () => {
+            document.removeEventListener('click', this.closeMenu);
+          });
+        }
+      }
 
     // extracts the material library and the name of material used
     // within the .obj file
@@ -212,18 +234,29 @@ class ExportControl extends React.Component {
     render() {
         return (
             <div className="export-control">
-                <select className="select-3d" onChange={this.props.on3DFormatSelect} value={this.props.chosen_3d_format} style={{
-                    backgroundImage: "url(images/select-arrow.png)",
-                    backgroundRepeat: 'no-repeat'
-                }}>
-                    <option value="">Export Format</option>
-                    {this.props.export_3d_formats.map((format) => (
-                        <option key={format} value={format} >.{format}</option>
-                    ))}
-                </select>
-                <button ref="download" className="exportButton" onClick={() => this.clickHandler()}>Export 3D Model</button>
-
-            </div>
+                <div className="">
+                    <button
+                        className="select-3d"
+                        onClick={this.showMenu}
+                        style={{ backgroundImage: "url(images/select-arrow.png)", backgroundRepeat: 'no-repeat' }}>
+                        {this.state.fotmatTitle}
+                    </button>
+                    <button ref="download" className="exportButton" onClick={() => this.clickHandler()}>Export 3D Model</button>
+                    {
+                        this.state.showMenu
+                        ? (
+                        <div className="exportMenu" ref={(element) => { this.dropdownMenu = element; }}>
+                            <button className="exportMenuItem" onClick={() => {this.props.on3DFormatSelect(""); this.setState({ fotmatTitle: "Export Format"}); this.setState({ showMenu: false }, () => {document.removeEventListener('click', this.closeMenu)})}}>Export Format</button>
+                            <button className="exportMenuItem" onClick={() => {this.props.on3DFormatSelect("OBJ"); this.setState({ fotmatTitle: "OBJ"}); this.setState({ showMenu: false }, () => {document.removeEventListener('click', this.closeMenu)})}}>.OBJ</button>
+                            <button className="exportMenuItem" onClick={() => {this.props.on3DFormatSelect("GBL"); this.setState({ fotmatTitle: "GLB"}); this.setState({ showMenu: false }, () => {document.removeEventListener('click', this.closeMenu)})}}>.GLB</button>
+                        </div>
+                        )
+                            : (
+                            null
+                        )
+                    }
+        </div>
+         </div>
         )
     }
 }
