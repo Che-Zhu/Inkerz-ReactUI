@@ -134,6 +134,7 @@ body {
     align-items: center;
     margin: 10px;
   }
+
   /* Design of the items appear on the main menu */
   .menuItem {
     width: 97%;
@@ -145,6 +146,7 @@ body {
     font-size: 12px;
     transition: 0.5s ease;
   }
+
   /* The items on the main menu get color changed when the pointer is hover above it */
   .menuItem:hover {
     color: #008cba;
@@ -719,3 +721,31 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
 most color choices retrived from:
 http://www.flatcolorsui.com
 */
+
+
+.exportMenu {
+  align-self: center;
+  background-color: #9E6C4B;
+  border-radius: 10px;
+  align-items: center;
+  float: left;
+  width: 48%;
+}
+
+.exportMenuItem {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #9E6C4B;
+  font-size: 12px;
+  transition: 0.5s ease;
+}
+
+.exportMenuItem:hover {
+  color: white;
+}
+
+.exportMenuItem:active {
+  background-color: #7E4C2B;
+}
