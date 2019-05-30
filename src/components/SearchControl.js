@@ -14,9 +14,7 @@ function SeachControl(props) {
             placeholder="Search Case..."
             style={{backgroundImage: "url(images/search-icon.png)",
             backgroundRepeat: 'no-repeat'}}
-        />      
-        <button className="clearButton" onClick={() => props.onClear("")}>X</button>
-            
+        />                  
         </div>
         )
     }
