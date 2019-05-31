@@ -52,7 +52,7 @@ body {
       "view3d";
   }
   /* Search box */
-  .search-3d { 
+  .search-3d {
     font-size: 12px;
     background-size: 25px 25px;
   }
@@ -168,7 +168,9 @@ body {
   }
 
   /*show icon only on small screen*/
-  .loadButton, .exportButton, .resetButton {
+  .loadButton,
+  .exportButton,
+  .resetButton {
     background-position: center center;
     background-size: 25px 25px;
     color: transparent;
@@ -204,8 +206,7 @@ body {
     height: 150px;
     width: 100px;
   }
-  * The back of the card when being pointed at by the mouse */
-  .card-back {
+  * The back of the card when being pointed at by the mouse */ .card-back {
     font-size: 18px;
   }
   /* Webpage header */
@@ -232,7 +233,9 @@ body {
   }
 
   /*show icon and text large screen*/
-  .loadButton, .exportButton, .resetButton {
+  .loadButton,
+  .exportButton,
+  .resetButton {
     background-position: center right 5px;
     background-size: 25px 25px;
     color: white;
@@ -315,7 +318,7 @@ body {
 /* this is button and card styling  section */
 /* Load 3D Model of specific phone case model */
 .loadButton {
-  background-color: #0077C0;
+  background-color: #0077c0;
   margin: 0;
   width: 97%;
   min-height: 50px;
@@ -324,23 +327,23 @@ body {
   vertical-align: top;
   border-bottom: 2px solid #003780;
   border-radius: 5px;
-  text-align: left;
+  text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /* Visual effect of hovering pointer on the top load button  */
 .loadButton:hover {
-  background-color: #0067B0;
+  background-color: #0067b0;
   border-color: #008cba;
   border-bottom: 2px solid #003780;
 }
 /* Visual effect of clicking on load button  */
 .loadButton:active {
-  background-color: #0057A0;
+  background-color: #0057a0;
   border-bottom: 2px solid #003780;
 }
 /* Export 3D Model button styling */
 .exportButton {
-  background-color: #9E6C4B;
+  background-color: #9e6c4b;
   margin: 0;
   width: 50%;
   margin-right: 1%;
@@ -348,51 +351,50 @@ body {
   border: none;
   transition: 0.5s ease;
   vertical-align: top;
-  border-bottom: 2px solid #5E2C0B;
+  border-bottom: 2px solid #5e2c0b;
   border-radius: 5px;
   float: right;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /* Export 3D Model button hover styling */
 .exportButton:hover {
-  background-color: #8E5C3B;
-  border-bottom: 2px solid #5E2C0B;
-
+  background-color: #8e5c3b;
+  border-bottom: 2px solid #5e2c0b;
 }
 /* Export 3D Model button click styling */
 .exportButton:active {
-  background-color: #7E4C2B;
-  border-bottom: 2px solid #5E2C0B;
+  background-color: #7e4c2b;
+  border-bottom: 2px solid #5e2c0b;
 }
 
 /* Reset button styling */
 .resetButton {
-  background-color: #007B70;
+  background-color: #007b70;
   margin: 0;
   width: 97%;
   min-height: 50px;
   border: none;
   transition: 0.5s ease;
   vertical-align: top;
-  border-bottom: 2px solid #005C01;
+  border-bottom: 2px solid #005c01;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /* Reset button hover styling */
 .resetButton:hover {
-  background-color: #106B60;
-  border-bottom: 2px solid #005C01;
+  background-color: #106b60;
+  border-bottom: 2px solid #005c01;
 }
 /* Reset button click style */
 .resetButton:active {
-  background-color: #005B50;
-  border-bottom: 2px solid #005C01;
+  background-color: #005b50;
+  border-bottom: 2px solid #005c01;
 }
 
 /* Clear button styling */
 .clearButton {
   margin-left: 0px;
-  background-color: #D73C2C;
+  background-color: #d73c2c;
   float: right;
   margin: 0;
   color: eeeeee;
@@ -405,12 +407,12 @@ body {
 }
 /* Visual effect of hovering pointer on the Clear button */
 .clearButton:hover {
-  background-color: #C72C1C;
+  background-color: #c72c1c;
   color: #eeeeee;
 }
 /* Visual effect of clicking pointer on the Clear button */
 .clearButton:active {
-  background-color: #B71C0C;
+  background-color: #b71c0c;
   color: #eeeeee;
 }
 /* 3D model search box styling */
@@ -418,7 +420,7 @@ body {
   margin-right: 0px;
   width: 100%;
   border: #000000;
-  background-color: #0077C0;
+  background-color: #0077c0;
   color: #ffcf4b;
   height: 50px;
   padding-left: 5px;
@@ -448,17 +450,17 @@ body {
 }
 /* Position of the engrave box on the page */
 .engrave-3d::placeholder {
-  color: rgb(41, 36, 36);
+  color: rgb(170, 170, 170);
 }
 /* Select and style the 3D Model Search field when it gets hovered */
 .search-3d:hover {
   outline: none;
-  background-color: #0067B0;
+  background-color: #0067b0;
 }
 /* Select and style the 3D Model Search field when it gets focus */
 .search-3d:focus {
   outline: none;
-  background-color: #0057A0;
+  background-color: #0057a0;
 }
 /* Select and style the Engrave field when it gets focus */
 .engrave-3d:focus {
@@ -487,7 +489,7 @@ body {
 }
 
 .select-3d {
-  background-color: #9E6C4B;
+  background-color: #9e6c4b;
   margin: 0;
   color: white;
   width: 48%;
@@ -506,7 +508,7 @@ body {
   text-align: center;
   background-size: 10px 10px;
   background-position: center right;
-  border-bottom: 2px solid #5E2C0B;
+  border-bottom: 2px solid #5e2c0b;
   border-radius: 5px;
   float: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -521,13 +523,13 @@ body {
 }
 
 .select-3d:hover {
-  background-color: #7E4C2B;
+  background-color: #7e4c2b;
 }
 
 /*the export menu popup*/
 .exportMenu {
   align-self: center;
-  background-color: #9E6C4B;
+  background-color: #9e6c4b;
   border-radius: 10px;
   align-items: center;
   float: left;
@@ -540,19 +542,19 @@ body {
   height: 30px;
   border: none;
   border-radius: 10px;
-  background-color: #9E6C4B;
+  background-color: #9e6c4b;
   font-size: 12px;
 }
 
 /*hover individual menu items*/
 .exportMenuItem:hover {
   color: white;
-  background-color: #7E4C2B;
+  background-color: #7e4c2b;
 }
 
 /*click individual menu items*/
 .exportMenuItem:active {
-  background-color: #6E3C1B;
+  background-color: #6e3c1b;
 }
 
 /* Phone make button styling */
@@ -736,7 +738,7 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   background: #909090;
   align-items: center;
 }
-/* The back of the card when being pointed at by the mouse styling */ 
+/* The back of the card when being pointed at by the mouse styling */
 .card-back {
   display: flex;
   text-shadow: 2px 2px 4px #000000;
@@ -756,10 +758,7 @@ https://note.mu/bear27_kuma/n/n4aea185253cb
   transform: rotateY(180deg);
 }
 
-
-
 /*
 most color choices retrived from:
 http://www.flatcolorsui.com
 */
-
