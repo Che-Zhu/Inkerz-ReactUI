@@ -514,6 +514,37 @@ body {
   background-color: #7E4C2B;
 }
 
+/*the export menu popup*/
+.exportMenu {
+  align-self: center;
+  background-color: #9E6C4B;
+  border-radius: 10px;
+  align-items: center;
+  float: left;
+  width: 48%;
+}
+
+/*individual menu items*/
+.exportMenuItem {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #9E6C4B;
+  font-size: 12px;
+}
+
+/*hover individual menu items*/
+.exportMenuItem:hover {
+  color: white;
+  background-color: #7E4C2B;
+}
+
+/*click individual menu items*/
+.exportMenuItem:active {
+  background-color: #6E3C1B;
+}
+
 /* Phone make button styling */
 .button-phone-make {
   border: 1px outset rgb(0, 0, 0);
@@ -722,30 +753,3 @@ most color choices retrived from:
 http://www.flatcolorsui.com
 */
 
-
-.exportMenu {
-  align-self: center;
-  background-color: #9E6C4B;
-  border-radius: 10px;
-  align-items: center;
-  float: left;
-  width: 48%;
-}
-
-.exportMenuItem {
-  width: 100%;
-  height: 30px;
-  border: none;
-  border-radius: 10px;
-  background-color: #9E6C4B;
-  font-size: 12px;
-  transition: 0.5s ease;
-}
-
-.exportMenuItem:hover {
-  color: white;
-}
-
-.exportMenuItem:active {
-  background-color: #7E4C2B;
-}
