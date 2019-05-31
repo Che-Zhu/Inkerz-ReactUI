@@ -239,14 +239,14 @@ class ExportControl extends React.Component {
                         className="select-3d"
                         onClick={this.showMenu}
                         style={{ backgroundImage: "url(images/select-arrow.png)", backgroundRepeat: 'no-repeat' }}>
-                        {this.state.fotmatTitle}
+                        {this.props.chosen_3d_format}
                     </button>
                     <button ref="download" className="exportButton" onClick={() => this.clickHandler()}>Export 3D Model</button>
                     {
                         this.state.showMenu
                         ? (
                         <div className="exportMenu" ref={(element) => { this.dropdownMenu = element; }}>
-                            <button className="exportMenuItem" onClick={() => {this.props.on3DFormatSelect(""); this.setState({ fotmatTitle: "Export Format"}); this.setState({ showMenu: false }, () => {document.removeEventListener('click', this.closeMenu)})}}>Export Format</button>
+                            <button className="exportMenuItem" onClick={() => {this.props.on3DFormatSelect("Export Format"); this.setState({ fotmatTitle: "Export Format"}); this.setState({ showMenu: false }, () => {document.removeEventListener('click', this.closeMenu)})}}>Export Format</button>
                             <button className="exportMenuItem" onClick={() => {this.props.on3DFormatSelect("OBJ"); this.setState({ fotmatTitle: "OBJ"}); this.setState({ showMenu: false }, () => {document.removeEventListener('click', this.closeMenu)})}}>.OBJ</button>
                             <button className="exportMenuItem" onClick={() => {this.props.on3DFormatSelect("GBL"); this.setState({ fotmatTitle: "GLB"}); this.setState({ showMenu: false }, () => {document.removeEventListener('click', this.closeMenu)})}}>.GLB</button>
                         </div>
