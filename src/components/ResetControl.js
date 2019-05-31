@@ -7,7 +7,7 @@ function ResetControl(props) {
     return (
 
         <div className="reset-control">
-            <button className="resetButton" onClick={props.onResetApp}>Reset</button>
+            <button className="resetButton" onClick={props.onResetApp} style={{backgroundImage: "url(images/reset-logo.png)",backgroundRepeat: 'no-repeat'}}>Reset</button>
         </div>
     )
 }
