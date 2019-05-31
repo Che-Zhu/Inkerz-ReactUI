@@ -241,7 +241,7 @@ class ExportControl extends React.Component {
                         style={{ backgroundImage: "url(images/select-arrow.png)", backgroundRepeat: 'no-repeat' }}>
                         {this.props.chosen_3d_format}
                     </button>
-                    <button ref="download" className="exportButton" onClick={() => this.clickHandler()}>Export 3D Model</button>
+                    <button ref="download" className="exportButton" onClick={() => this.clickHandler()} style={{backgroundImage: "url(images/download-logo.png)", backgroundRepeat: 'no-repeat'}}>Export 3D Model</button>
                     {
                         this.state.showMenu
                         ? (
