@@ -166,6 +166,13 @@ body {
     height: 40px;
     width: auto;
   }
+
+  /*show icon only on small screen*/
+  .loadButton, .exportButton, .resetButton {
+    background-position: center center;
+    background-size: 25px 25px;
+    color: transparent;
+  }
 }
 
 /*Large screen control*/
@@ -222,6 +229,13 @@ body {
     visibility: hidden;
     width: 0px;
     height: 0px;
+  }
+
+  /*show icon and text large screen*/
+  .loadButton, .exportButton, .resetButton {
+    background-position: center right 5px;
+    background-size: 25px 25px;
+    color: white;
   }
 }
 /* Inkerz logo stay the same */
@@ -303,7 +317,6 @@ body {
 .loadButton {
   background-color: #0077C0;
   margin: 0;
-  color: white;
   width: 97%;
   min-height: 50px;
   border: none;
@@ -311,26 +324,24 @@ body {
   vertical-align: top;
   border-bottom: 2px solid #003780;
   border-radius: 5px;
+  text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /* Visual effect of hovering pointer on the top load button  */
 .loadButton:hover {
   background-color: #0067B0;
-  color: #eeeeee;
   border-color: #008cba;
   border-bottom: 2px solid #003780;
 }
 /* Visual effect of clicking on load button  */
 .loadButton:active {
   background-color: #0057A0;
-  color: #eeeeee;
   border-bottom: 2px solid #003780;
 }
 /* Export 3D Model button styling */
 .exportButton {
   background-color: #9E6C4B;
   margin: 0;
-  color: white;
   width: 50%;
   margin-right: 1%;
   min-height: 50px;
@@ -358,7 +369,6 @@ body {
 .resetButton {
   background-color: #007B70;
   margin: 0;
-  color: white;
   width: 97%;
   min-height: 50px;
   border: none;
