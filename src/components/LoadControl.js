@@ -214,7 +214,7 @@ class LoadControl extends Component {
         return (
             <div className="load-control">
                 <ReactFileReader fileTypes={[".obj", ".json", ".mtl"]} multipleFiles={true} base64={false} handleFiles={this.handleFiles}>
-                    <button className="loadButton">Load 3D Model</button>
+                    <button className="loadButton" style={{backgroundImage: "url(images/load-logo.png)", backgroundRepeat: 'no-repeat'}}>Load 3D Model</button>
                 </ReactFileReader>
             </div >
         )
