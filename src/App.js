@@ -1,4 +1,3 @@
-// other components import
 import React, { Component } from 'react';
 import Header from './components/Header'
 import LoadControl from './components/LoadControl'
@@ -21,12 +20,10 @@ class App extends Component {
             case_search_string: '',
             chosen_case_colour: '#44557E',
             chosen_phone_case: 'iPhone-X',
-            chosen_export_3d_format: 'Export Format',
+            chosen_export_3d_format: '',
+            chosen_3d_file_to_load: 'Something is wrong if this text displays',
             chosen_3d_file_extension: '',
-            displayed_3d_model_rotation_x: 0,
-            displayed_3d_model_rotation_y: 0,
-            displayed_3d_model_zoom_level: 20,
-            available_export_3d_formats: ['OBJ', 'GLB'],
+            available_export_3d_formats: ['STL', 'OBJ', 'AFM', '3FM'],
             available_case_models: ['iPhone-X', 'iPhone-8-Plus', 'iPhone-7', 'iPad-9.7', 'Galaxy-S10', 'Galaxy-S5', 'Pixel2XL'],
         }
 
@@ -39,15 +36,12 @@ class App extends Component {
         this.resetApp = this.resetApp.bind(this)
         this.updateSearchString = this.updateSearchString.bind(this)
         this.clearSearchString = this.clearSearchString.bind(this)
-        this.updateDisplayed3DModelRotationX = this.updateDisplayed3DModelRotationX.bind(this)
-        this.updateDisplayed3DModelRotationY = this.updateDisplayed3DModelRotationY.bind(this)
-        this.updateDisplayed3DModelZoom = this.updateDisplayed3DModelZoom.bind(this)
 
     }
     /* Updates chosen_export_3d_format App state property based on return
      event target value*/
     update3DExportFormat(e) {
-        this.setState({ chosen_export_3d_format: e})
+        this.setState({ chosen_export_3d_format: e.target.value })
     }
     /* Resets App to chosen default values (empty) */
     resetApp() {
@@ -55,61 +49,34 @@ class App extends Component {
             chosen_engraved_text: '',
             case_search_string: '',
             chosen_case_colour: '#44557E',
-            chosen_export_3d_format: 'Export Format',
+            chosen_export_3d_format: '',
             chosen_phone_case: 'iPhone-X',
-            displayed_3d_model_rotation_x: 0,
-            displayed_3d_model_rotation_y: 0,
-            displayed_3d_model_zoom_level: 20,
         })
     }
-    // updates engraved text state property, based on return event target value
+    /* This section update the current engrave text to the recent modified text */
     updateEngravingText(e) {
         this.setState({ chosen_engraved_text: e.target.value })
     }
-    // updates case colour state proiperty, based on return event target value
+    /* This section update the chosen color to the model */
     updateCaseColour(color) {
         this.setState({ chosen_case_colour: color.hex })
     }
-    // updates chose case state property, based on return event target value
+    /* This section swap the current display model with the recent chosen model */
     updateChosenCase(e) {
         this.setState({ chosen_phone_case: e })
     }
-    // updates loaded 3D file file and extention state property, based on return event target value
-    updateChosen3DFileToLoad(file, fileExtension, color) {
+    /* This section update the current display model with the loaded model */
+    updateChosen3DFileToLoad(file, fileExtension) {
         this.setState({ chosen_phone_case: file })
         this.setState({ chosen_3d_file_extension: fileExtension })
-        if (color === '#GGGGGG') {
-
-        }
-        else {
-            this.setState({ chosen_case_colour: color })
-        }
     }
-    // updates case search string, based on return event target value
+    /* This section update the chosen color to the model */
     updateSearchString(e) {
-        this.setState({ case_search_string: e.target.value })
+        this.setState({ case_search_string: e.target.value})
     }
-    // clears case search string, based on return event target value
+    /* This section set the string search to clear state */
     clearSearchString(e) {
-        this.setState({ case_search_string: e })
-    }
-    // updates 3D model rotationX values
-    updateDisplayed3DModelRotationX(value) {
-        this.setState({
-            displayed_3d_model_rotation_x: value
-        })
-    }
-    // updates 3D model rotationY values
-    updateDisplayed3DModelRotationY(value) {
-        this.setState({
-            displayed_3d_model_rotation_y: value
-        })
-    }
-    // updates 3D model Zoom values
-    updateDisplayed3DModelZoom(value) {
-        this.setState({
-            displayed_3d_model_zoom_level: value
-        })
+        this.setState({ case_search_string: e})
     }
 
     /* App JSX render section. Works together with index.css in
@@ -119,26 +86,22 @@ class App extends Component {
             <div className="app" >
                 <Header />
                 <div className="top-controls">
-                    <LoadControl on3DFileLoad={this.updateChosen3DFileToLoad}
-                        app_states={this.state}
-                    />
-
+                    <LoadControl on3DFileLoad={this.updateChosen3DFileToLoad} />
+                    
                     <ExportControl
                         export_3d_formats={this.state.available_export_3d_formats}
                         chosen_3d_format={this.state.chosen_export_3d_format}
                         on3DFormatSelect={this.update3DExportFormat}
                         chosen_phone_case={this.state.chosen_phone_case}
-                        chosen_case_colour={this.state.chosen_case_colour}
-                    // app_states={this.state}
                     />
-
+                    
                     <ResetControl onResetApp={this.resetApp} />
 
-                    <SearchControl
-                        searched={this.state.case_search_string}
-                        onCaseSearch={this.updateSearchString}
-                        onClear={this.clearSearchString} />
-
+                    <SearchControl 
+                    searched={this.state.case_search_string}
+                    onCaseSearch={this.updateSearchString}
+                    onClear={this.clearSearchString}/>
+                    
                 </div>
                 <div className="view3d">
                     <CaseSelection
@@ -147,12 +110,7 @@ class App extends Component {
                         searched={this.state.case_search_string}
                         onClear={this.clearSearchString}
                     />
-
-                    <Main3DView
-                        app_states={this.state}
-                        onRotationXChange={this.updateDisplayed3DModelRotationX}
-                        onRotationYChange={this.updateDisplayed3DModelRotationY}
-                        onZoomChange={this.updateDisplayed3DModelZoom} />
+                    <Main3DView app_states={this.state} />
                 </div>
                 <div className="edit-controls">
                     <TextEngraving
