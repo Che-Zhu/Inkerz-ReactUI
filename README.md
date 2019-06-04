@@ -7,15 +7,7 @@
 # **Several Things you need to do after you downloaded/pulled code from this repository**
 
 ## 1. Install node-modules folder
-
-
-### 1.1 Copy and paste your own node-modules folder to project folder:
-![node-modules](node.png)
-
-<center>OR</center>
-
-
-### 1.2 Use `npm install gh-pages --save-dev` to re-install node-modules.
+`npm install`
 
 ---
 Please also check that you have the following command in your **package.json** file:
@@ -23,8 +15,11 @@ Please also check that you have the following command in your **package.json** f
 
 ---
 
-## 2. Install Modules
-`React will not work if any of these modules is not installed`
+## 2. Modules required
+`Application will not work if any of these modules is not installed`
+#### GitHub Pages
+`npm install gh-pages --save-dev`
+
 #### React-color
 `npm install react-color --save`
 
